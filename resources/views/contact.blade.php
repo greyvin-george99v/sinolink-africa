@@ -59,7 +59,6 @@
 <section class="inquiry-section reveal">
     <div class="container">
         <div class="inquiry-flex-wrapper">
-            
             <div class="inquiry-content">
                 <div class="contact-header-left">
                     <div class="badge-red-soft">GET IN TOUCH</div>
