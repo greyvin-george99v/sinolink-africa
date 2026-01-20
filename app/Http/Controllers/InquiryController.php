@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\InquiryReceived;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -72,7 +74,8 @@ public function exportCsv() {
             'created_at' => now(),
         ]);
 
-        
+        $inquiry = (object) $validated; 
+        Mail::to('info@sinolink.africa')->send(new InquiryReceived($inquiry));
         // 3. Send back to the form with success
         return back()->with('success', 'Thank you! Your inquiry has been sent.');
     }
