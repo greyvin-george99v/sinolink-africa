@@ -1,0 +1,29 @@
+<?php
+
+namespace App\Providers;
+
+use Illuminate\Support\ServiceProvider;
+// ADD THIS LINE BELOW:
+use Illuminate\Support\Facades\Gate; 
+
+class AppServiceProvider extends ServiceProvider
+{
+    /**
+     * Register any application services.
+     */
+    public function register(): void
+    {
+        //
+    }
+
+    /**
+     * Bootstrap any application services.
+     */
+    public function boot(): void
+    {
+        Gate::define('access-admin', function ($user = null) {
+            return request()->getUser() === env('ADMIN_USER') && 
+                   request()->getPassword() === env('ADMIN_PASSWORD');
+        });
+    }
+}
