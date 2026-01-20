@@ -21,9 +21,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Gate::define('access-admin', function ($user = null) {
-            return request()->getUser() === env('ADMIN_USER') && 
-                   request()->getPassword() === env('ADMIN_PASSWORD');
-        });
+        
     }
 }
