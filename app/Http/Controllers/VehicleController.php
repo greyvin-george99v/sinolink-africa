@@ -243,7 +243,7 @@ class VehicleController extends Controller
         ],
             22 => [
             'name' => 'Changan UNI-T Flagship Edition 1.5T',
-            'price' => 10,551,
+            'price' => 10551,
             'year' => '2021',
             'km' => '25,000 km',
             'fuel' => 'Gasoline',
