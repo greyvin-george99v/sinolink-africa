@@ -3316,49 +3316,308 @@ body {
     }
 }
 
-.pagination-wrapper {
+/* Vehicle Details Layout */
+.vehicle-details-page {
+    max-width: 1152px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Breadcrumbs */
+.breadcrumb-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 27px;
+    font-size: 14px;
+    color: #5C5C5C;
+}
+.breadcrumb-container a { text-decoration: none; color: #5C5C5C; }
+.breadcrumb-container .bold { font-weight: 600; }
+.breadcrumb-container .active-item { color: #E1061B; }
+.breadcrumb-container i { font-size: 10px; }
+
+/* Grid Structure */
+.details-grid {
+    display: grid;
+    grid-template-columns: 760px 1fr;
+    gap: 24px;
+}
+
+/* Left Content */
+.hero-image-wrapper img {
+    width: 100%;
+    height: 578px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.info-section {
+    margin-top: 32px;
+    padding: 32px;
+    background: #FFFFFF;
+    box-shadow: 0px 1px 30px rgba(170, 170, 170, 0.25);
+    border-radius: 10px;
+}
+
+.info-section .content-block + .content-block {
+    margin-top: 36px; 
+}
+
+.section-label {
+    display: inline-block;
+    padding: 0 10px;
+    background: #FFF2CD;
+    border-top-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 40px;
+    margin-bottom: 22px;
+}
+
+.description-text {
+    color: #5C5C5C;
+    font-size: 14px;
+    line-height: 22px;
+}
+
+.overview-items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.ov-item label {
+    display: block;
+    color: #5C5C5C;
+    font-size: 14px;
+}
+
+.ov-item span {
+    font-weight: 500;
+    color: #1E1E1E;
+}
+
+/* Sidebar Styling */
+.sidebar-card {
+    background: #FFFFFF;
+    box-shadow: 0px 1px 30px rgba(170, 170, 170, 0.25);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.sidebar-card.action-card {
+    padding: 20px 16px;
+    background: #FFFFFF;
+    box-shadow: 0px 1px 30px rgba(170, 170, 170, 0.25);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.year-badge {
+    display: inline-block;
+    background: #F4F4F4;
+    padding: 2px 10px;
+    border-radius: 3px;
+    font-size: 14px;
+    color: #5C5C5C;
+    margin-bottom: 18px;
+}
+
+.vehicle-title {
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 26px;
+    margin-bottom: 15px;
+}
+
+.price-container label { color: #5C5C5C; font-size: 16px; }
+.price-value { color: #E1061B; font-size: 32px; font-weight: 600; }
+
+.btn-whatsapp {
+    background: #37D36D;
+    color: #FFFFFF !important;
+    text-decoration: none;
+    padding: 18px;
+    border-radius: 10px;
     display: flex;
     justify-content: center;
-    margin-top: 50px;
-    margin-bottom: 40px;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    margin-bottom: 20px; /* Space between the two buttons */
 }
 
-.pagination {
+.btn-whatsapp:hover, .btn-outline-yellow:hover {
+    transform: translateY(-2px);
+    filter: brightness(0.95);
+}
+
+.contact-info {
+    margin-top: 36px; /* Exactly 36px gap from the button above */
+}
+
+.contact-info .card-title {
+    margin-top: 0 !important; /* Remove any default/extra top margin from the title */
+    margin-bottom: 20px; /* Space below the "Quick Contact" title */
+}
+
+.card-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: #1E1E1E;
+    margin-top: 0; /* Reset any default top margins */
+    margin-bottom: 20px; /* Exact spacing to the WhatsApp button and Contact rows */
+}
+
+.btn-outline-yellow {
     display: flex;
-    border: 1px solid #E0E0E0;
-    border-radius: 4px;
-    overflow: hidden;
+    justify-content: center;
+    padding: 20px;
+    border: 1px solid #FEA71C;
+    color: #FEA71C;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 20px;
 }
 
-.page-link {
+.contact-row {
+    display: flex;
+    align-items: flex-start; 
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.icon-circle {
+    width: 30px;
+    height: 30px;
+    background: #FDC933;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    flex-shrink: 0;
+}
+
+.text-group p, .text-group a {
+    margin: 0;
+    font-size: 15px;
+    color: #5C5C5C;
     text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    border-right: 1px solid #E0E0E0;
-    background-color: #fff;
-    transition: background 0.2s;
 }
 
-/* Remove border from the last item (the arrow) */
-.page-link:last-child {
-    border-right: none;
+/* --- Core Layout Fixes --- */
+.main-details-flex {
+    display: flex;
+    flex-direction: column; /* Start stacked for mobile */
+    gap: 30px;
+    width: 92%;           /* Leave some breathing room on sides */
+    max-width: 1200px;    /* Don't let it get wider than design */
+    margin: 40px auto;    /* Center it horizontally */
 }
 
-/* The Yellow Active State */
-.page-link.active {
-    background-color: #FDC933; /* Your brand yellow */
-    color: #000;
+.column-left {
+    flex: 1;
+    max-width: 760px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    height: auto; /* REMOVE FIXED HEIGHT */
 }
 
-.page-link:hover:not(.active) {
-    background-color: #f8f9fb;
+.column-left, .column-right {
+    width: 100%;          /* Full width on mobile */
+    height: auto !important; /* Forces boxes to grow with text */
 }
 
-.page-link.next {
-    font-size: 12px;
+.main-vehicle-img {
+    width: 100%;
+    height: 578px;
+    border-radius: 10px;
+    object-fit: cover;
+    flex-shrink: 0; /* Prevents image from squishing */
+}
+
+.info-card-container {
+    padding: 32px;
+    background: white;
+    box-shadow: 0px 1px 30px rgba(170, 170, 170, 0.25);
+    border-radius: 10px;
+    height: auto; /* Allow content to expand */
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- 1. BASE LAYOUT (Mobile First) --- */
+.main-details-flex {
+    display: flex;
+    flex-direction: column; /* Stack vertically on mobile */
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px; /* Limits the width so it doesn't stretch too far */
+    margin: 0 auto;    /* Centers the whole thing on the screen */
+    padding: 20px;
+}
+
+.column-left, .column-right {
+    width: 100%; /* Full width on mobile */
+}
+
+/* --- 2. DESKTOP LAYOUT (Screens larger than 992px) --- */
+@media (min-width: 992px) {
+    .main-details-flex {
+        flex-direction: row; /* Snap side-by-side on desktop */
+        align-items: flex-start;
+    }
+
+    .column-left {
+        flex: 2;          /* Takes up 66% space */
+    }
+
+    .column-right {
+        flex: 1;          /* Takes up 33% space */
+        max-width: 380px; /* Prevents sidebar from getting too wide */
+    }
+
+    .hero-image-wrapper {
+        /* Remove the fixed 578px height so it doesn't overlap content */
+        height: auto !important; 
+        aspect-ratio: 16 / 9; /* Maintains a professional car-photo shape */
+        margin-bottom: 20px;
+    }
+
+    .hero-image-wrapper img {
+        height: auto;
+        max-height: 400px; /* Prevents the image from taking up the whole phone screen */
+    }
+    
+    /* Ensure the main container doesn't have side-scrolling */
+    .main-details-flex {
+        padding: 0 15px;
+        overflow-x: hidden;
+    }
+}
+
+/* --- 4. THE OVERVIEW GRID FIX --- */
+.overview-items {
+    display: flex;
+    flex-wrap: wrap;      /* Allows items to jump to next line */
+    gap: 30px 60px;
+}
+
+.ov-item {
+    min-width: 120px;     /* Ensures text doesn't overlap labels */
+}
+
+@media (max-width: 576px) {
+    .overview-items {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* 2 clean columns on small phones */
+    }
 }

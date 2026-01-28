@@ -100,25 +100,7 @@
         </div>
     @endfor
 </div>
-Why this is better for you right now:
-One Change Fixes All: If you want to change the border-radius or the yellow icon color, you only change it once in the code above, and all 12 cards update.
 
-Image Handling: It automatically looks for Sinolink-1.jpg, Sinolink-2.jpg, etc., matching your folder structure perfectly.
-
-Cleanliness: Your file will be much easier to read in VS Code.
-
-A Quick Layout Tip
-Since you are using a 4-column grid, the names might get quite long. I noticed your car names have a lot of detail (e.g., "2.7L 2WD 5 Seater..."). To keep the cards looking aligned, you might want to add this to your CSS:
-
-CSS
-.car-name {
-    height: 45px; /* Ensures all titles take up the same space */
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 2; /* Limits title to 2 lines */
-    -webkit-box-orient: vertical;
-}
-Would you like me to provide the full array for all 17 of your images so the names match the actual cars in your photos?  
 </div>
 
 @endsection

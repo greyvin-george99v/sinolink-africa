@@ -15,6 +15,12 @@ Route::get('/catalogue', function () {
     return view('catalogue');
 })->name('catalogue');
 
+
+
+Route::get('/details', function () {
+    return view('vehicle-details');
+});
+
 Route::get('/services', function () {
     return view('services');
 })->name('services');
