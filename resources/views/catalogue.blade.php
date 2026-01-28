@@ -4,22 +4,7 @@
 
 @section('content')
 
-@php
-    $totalCars = 61; 
-    $perPage = 20; 
-    
-    // Get current page from URL (?page=1), default to 1
-    $currentPage = (int) request('page', 1);
-    
-    // Safety check: don't allow page 0 or page 100
-    $totalPages = ceil($totalCars / $perPage);
-    if ($currentPage < 1) $currentPage = 1;
-    if ($currentPage > $totalPages) $currentPage = $totalPages;
 
-    // Calculate the image range
-    $start = ($currentPage - 1) * $perPage + 1;
-    $end = min($start + $perPage - 1, $totalCars);
-@endphp
 
 
 <section class="about-breadcrumb-hero">
@@ -37,26 +22,49 @@
 </section>
 <section class="filter-wrapper">
     <div class="container-center">
-        <div class="filter-bar">
-            <input type="text" placeholder="Search..." class="f-input-search">
+            <form action="{{ route('catalogue') }}" method="GET" class="filter-bar">
+            <input type="text" name="search" value="{{ request('search') }}" placeholder="Search..." class="f-input-search">
             
-            <select class="f-select">
-                <option>All Brands</option>
-                <option>Toyota</option>
-                <option>Lexus</option>
+            
+            <select name="brand" class="f-select">
+                <option value="">All Brands</option>
+                <option value="Audi" {{ request('brand') == 'Audi' ? 'selected' : '' }}>Audi</option>
+                <option value="BAIC HUANSU" {{ request('brand') == 'BAIC HUANSU' ? 'selected' : '' }}>BAIC HUANSU</option>
+                <option value="Beijing Hyundai" {{ request('brand') == 'Beijing Hyundai' ? 'selected' : '' }}>Beijing Hyundai</option>
+                <option value="Changan" {{ request('brand') == 'Changan' ? 'selected' : '' }}>Changan</option>
+                <option value="Cheetah" {{ request('brand') == 'Cheetah' ? 'selected' : '' }}>Cheetah</option>
+                <option value="Geely" {{ request('brand') == 'Geely' ? 'selected' : '' }}>Geely</option>
+                <option value="Haval" {{ request('brand') == 'Haval' ? 'selected' : '' }}>Haval</option>
+                <option value="Honda" {{ request('brand') == 'Honda' ? 'selected' : '' }}>Honda</option>
+                <option value="Hyundai" {{ request('brand') == 'Hyundai' ? 'selected' : '' }}>Hyundai</option>
+                <option value="Jeep" {{ request('brand') == 'Jeep' ? 'selected' : '' }}>Jeep</option>
+                <option value="Jetour" {{ request('brand') == 'Jetour' ? 'selected' : '' }}>Jetour</option>
+                <option value="Kia" {{ request('brand') == 'Kia' ? 'selected' : '' }}>Kia</option>
+                <option value="Land Rover" {{ request('brand') == 'Land Rover' ? 'selected' : '' }}>Land Rover</option>
+                <option value="Lexus" {{ request('brand') == 'Lexus' ? 'selected' : '' }}>Lexus</option>
+                <option value="Mazda" {{ request('brand') == 'Mazda' ? 'selected' : '' }}>Mazda</option>
+                <option value="Mercedes-Benz" {{ request('brand') == 'Mercedes-Benz' ? 'selected' : '' }}>Mercedes-Benz</option>
+                <option value="Suzuki" {{ request('brand') == 'Suzuki' ? 'selected' : '' }}>Suzuki</option>
+                <option value="Toyota" {{ request('brand') == 'Toyota' ? 'selected' : '' }}>Toyota</option>
+                <option value="Volkswagen" {{ request('brand') == 'Volkswagen' ? 'selected' : '' }}>Volkswagen</option>
+                <option value="Zotye" {{ request('brand') == 'Zotye' ? 'selected' : '' }}>Zotye</option>
             </select>
 
-            <input type="number" placeholder="Min Price" class="f-input">
-            <input type="number" placeholder="Max Price" class="f-input">
+            <input type="number" name="min_price" value="{{ request('min_price') }}" placeholder="Min Price" class="f-input">
+            <input type="number" name="max_price" value="{{ request('max_price') }}" placeholder="Max Price" class="f-input">
 
-            <select class="f-select">
-                <option>Sort by</option>
-                <option>Price: Low to High</option>
-                <option>Newest</option>
+            <select name="sort"class="f-select">
+                <option value="">Sort by</option>
+    <option value="price_asc" {{ request('sort') == 'price_asc' ? 'selected' : '' }}>Price Increasing</option>
+    <option value="price_desc" {{ request('sort') == 'price_desc' ? 'selected' : '' }}>Price Descending</option>
+    <option value="year_new" {{ request('sort') == 'year_new' ? 'selected' : '' }}>Recent year</option>
+    <option value="year_old" {{ request('sort') == 'year_old' ? 'selected' : '' }}>Old Model</option>
             </select>
 
-            <button class="f-btn-search">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <button type="submit" class="f-btn-filter">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="black">
+                    <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"></path>
+                </svg>
             </button>
         </div>
     </div>
@@ -64,41 +72,49 @@
 
 <div class="catalogue-container">
 
-  <div class="catalogue-grid">
-    @foreach ($vehicles as $id => $car)
-    <div class="car-card">
-        <div class="car-card-top">
-            <img src="{{ asset('images/' . ($car['image'] ?? 'Sinolink-' . $id . '.jpg')) }}" alt="Car" class="car-img">
-            <div class="price-pill">${{ number_format($car['price'] ?? 5000) }}</div>
-        </div>
-        
-        <div class="car-card-bottom">
-            {{-- Dynamic Name from your array --}}
-            <h3 class="car-name">{{ $car['name'] ?? 'Toyota Highlander 2009' }}</h3>
-            
-            <div class="car-meta">
-                <div class="meta-item">
-                    <i class="fa-regular fa-calendar yellow-icon"></i> 
-                    {{ $car['year'] ?? '2008' }}
+  <div class="catalogue-grid ">
+    @if($vehicles->count() > 0)
+        @foreach ($vehicles as $id => $car)
+            <div class="car-card">
+                <div class="car-card-top">
+                    <img src="{{ asset('images/' . ($car['image'] ?? 'Sinolink-' . $id . '.jpg')) }}" alt="Car" class="car-img">
+                    <div class="price-pill">${{ number_format($car['price'] ?? 5000) }}</div>
                 </div>
-                <div class="meta-item">
-                    <i class="fa-solid fa-gauge-high yellow-icon"></i> 
-                    {{ $car['km'] ?? '200,000 km' }}
-                </div>
-                <div class="meta-item">
-                    <i class="fa-solid fa-gas-pump yellow-icon"></i> 
-                    {{ $car['fuel'] ?? 'Essence' }}
+                
+                <div class="car-card-bottom">
+                    <h3 class="car-name">{{ $car['name'] ?? 'Toyota Highlander 2009' }}</h3>
+                    
+                    <div class="car-meta">
+                        <div class="meta-item">
+                            <i class="fa-regular fa-calendar yellow-icon"></i> 
+                            {{ $car['year'] ?? '2008' }}
+                        </div>
+                        <div class="meta-item">
+                            <i class="fa-solid fa-gauge-high yellow-icon"></i> 
+                            {{ $car['km'] ?? '200,000 km' }}
+                        </div>
+                        <div class="meta-item">
+                            <i class="fa-solid fa-gas-pump yellow-icon"></i> 
+                            {{ $car['fuel'] ?? 'Essence' }}
+                        </div>
+                    </div>
+
+                    <p class="car-desc">{{ \Illuminate\Support\Str::limit($car['desc'] ?? '5-seater SUV equipped with airbags...', 85) }}</p>
+                    
+                    <a href="{{ route('vehicle.details', ['id' => $id]) }}" class="btn-details">See details</a>
                 </div>
             </div>
-
-         
-            <p class="car-desc">{{ \Illuminate\Support\Str::limit($car['desc'] ?? '5-seater SUV equipped with airbags...', 85) }}</p>
-            
-            
-            <a href="{{ route('vehicle.details', ['id' => $id]) }}" class="btn-details">See details</a>
+        @endforeach
+    @else
+        {{-- This shows if the search/filter returns zero cars --}}
+        <div class="no-results-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <h2>No results found</h2>
+            <p>No vehicles found. Try changing your filters.</p>
+            <a href="{{ route('catalogue') }}" class="btn-clear">Clear all filters</a>
         </div>
-    </div>
-@endforeach
+    @endif
+</div>
 
 <div class="pagination-wrapper">
     {{ $vehicles->links() }}

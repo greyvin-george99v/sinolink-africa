@@ -687,35 +687,85 @@ class VehicleController extends Controller
 
     // 2. This handles the Catalogue (20 per page)
    public function catalogue(Request $request)
-    {
-        $allVehicles = $this->getVehicles();
-        $perPage = 20; 
-        $currentPage = $request->input('page', 1);
-        $currentItems = $allVehicles->slice(($currentPage - 1) * $perPage, $perPage)->all();
+{
+    // 1. Get all vehicles as a Collection so we can filter easily
+    $allVehicles = collect($this->getVehicles());
 
-        $vehicles = new \Illuminate\Pagination\LengthAwarePaginator(
-            $currentItems, 
-            $allVehicles->count(), 
-            $perPage, 
-            $currentPage, 
-            ['path' => $request->url(), 'query' => $request->query()]
-        );
-
-        // ADD THIS LINE: It passes the $vehicles variable to your blade
-        return view('catalogue', compact('vehicles'));
+    // 2. APPLY FILTERS
+    // Search by name
+    if ($request->filled('search')) {
+        $search = strtolower($request->search);
+        $allVehicles = $allVehicles->filter(function($item) use ($search) {
+            return str_contains(strtolower($item['name']), $search);
+        });
     }
 
-    // 3. PLACE THE NEW CODE HERE (Handles the specific car page)
-    public function show($id)
-    {
-        $allVehicles = $this->getVehicles();
-        
-        if (!isset($allVehicles[$id])) {
-            abort(404);
-        }
+    // Filter by Brand
+    if ($request->filled('brand')) {
+        $brand = $request->brand; // No strtolower here if your array values are capitalized
+        $allVehicles = $allVehicles->filter(function($item) use ($brand) {
+            // Check for an explicit 'brand' key, or if the name starts with the brand
+            return (isset($item['brand']) && $item['brand'] === $brand) || 
+                   str_starts_with($item['name'], $brand);
+        });
+    }
+    // Filter by Price
+    if ($request->filled('min_price')) {
+        $allVehicles = $allVehicles->where('price', '>=', $request->min_price);
+    }
+    if ($request->filled('max_price')) {
+        $allVehicles = $allVehicles->where('price', '<=', $request->max_price);
+    }
 
-        $vehicle = $allVehicles[$id];
-
-        return view('vehicle-details', compact('vehicle'));
+    // 3. APPLY SORTING
+    if ($request->filled('sort')) {
+    switch ($request->sort) {
+        case 'price_asc':
+            $allVehicles = $allVehicles->sortBy('price');
+            break;
+        case 'price_desc':
+            $allVehicles = $allVehicles->sortByDesc('price');
+            break;
+        case 'year_new':
+            $allVehicles = $allVehicles->sortByDesc('year');
+            break;
+        case 'year_old':
+            $allVehicles = $allVehicles->sortBy('year');
+            break;
     }
 }
+
+
+    // 4. PAGINATION (Uses the filtered/sorted collection)
+    $perPage = 20; 
+    $currentPage = $request->input('page', 1);
+    
+    // Slice the filtered collection
+    $currentItems = $allVehicles->slice(($currentPage - 1) * $perPage, $perPage)->all();
+
+    $vehicles = new \Illuminate\Pagination\LengthAwarePaginator(
+        $currentItems, 
+        $allVehicles->count(), 
+        $perPage, 
+        $currentPage, 
+        ['path' => $request->url(), 'query' => $request->query()]
+    );
+
+    return view('catalogue', compact('vehicles'));
+}
+        public function show($id)
+        {
+            $vehicles = $this->getVehicles(); 
+            
+            if (!isset($vehicles[$id])) {
+                abort(404);
+            }
+
+            // Change 'car' to 'vehicle' here so it matches your Blade file
+            $vehicle = $vehicles[$id]; 
+            return view('vehicle-details', compact('vehicle'));
+        }
+
+}
+
+            

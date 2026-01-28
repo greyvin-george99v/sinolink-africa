@@ -3108,25 +3108,25 @@ body {
 /* 1. Full-width Background for the bar */
 .filter-wrapper {
     width: 100%;
+    display: flex;
+    justify-content: center;
     background: #ffffff; /* Figma shows white background for the whole strip */
     border-bottom: 1px solid #E0E0E0;
     padding: 20px 0;
 }
 
 /* 2. Centered container for filter content */
-.container-center {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
+
 
 /* 3. Filter Bar Layout */
 .filter-bar {
     display: flex;
+    flex-wrap: wrap; /* Helps with mobile layout */
     align-items: center;
     justify-content: space-between;
-    gap: 12px;
+    gap: 15px;
 }
+
 
 /* 4. SEARCH INPUT WIDTH FIX (Figma Match) */
 .f-input-search {
@@ -3140,21 +3140,54 @@ body {
 /* 5. Other Inputs Width */
 .f-input, .f-select {
     flex: 1;
-    min-width: 120px;
+    min-width: 0x;
     padding: 10px;
     border: 1px solid #9A9A9A;
     border-radius: 5px;
     font-size: 14px;
 }
 
-.f-btn-search {
-    background: #FDC933;
-    border: none;
-    padding: 10px 15px;
+.f-select {
+    flex: 1;
+    height: 45px;
+    padding: 0 35px 0 15px; /* 15px left, 35px right to give the arrow "breathing room" */
+    border: 1px solid #D1D1D1;
     border-radius: 5px;
+    background-color: #ffffff;
+    
+    /* Custom Arrow Styling */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center; /* Moves arrow 15px away from the right edge */
+    background-size: 12px;
     cursor: pointer;
+}
+
+.f-btn-filter {
+    background-color: #FDC933; /* Your brand yellow */
+    border: none;
+    border-radius: 8px; /* Slightly rounded corners like the image */
+    width: 45px;
+    height: 40px;
     display: flex;
     align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    padding: 0;
+    flex: 0 0 45px
+}
+
+.f-btn-filter:hover {
+    background-color: #e5b62d;
+}
+
+/* Ensures the icon stays solid black */
+.f-btn-filter svg {
+    display: block;
 }
 
 /* 6. Grid Spacing Fix */
@@ -3166,20 +3199,24 @@ body {
 
 .catalogue-grid {
     display: grid;
-    /* Changed from 3 to 4 */
-    grid-template-columns: repeat(4, 1fr); 
-    gap: 30px 24px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    align-items: stretch;
+    width: 100%; /* Force the grid to stay within the container */
 }
 
-/* Hover Effect */
 .car-card {
     background: #ffffff;
+    min-width: 0 !important;
     border-radius: 15px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     transition: all 0.3s ease;
     border: 1px solid #D1D1D1;
+    min-width: 0; /* Prevents the first card from pushing wider than the others */
+    width: 100%;
+    height:200;
 }
 
 .car-card:hover {
@@ -3217,18 +3254,19 @@ body {
 }
 
 .car-card-bottom {
-    padding: 17px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    flex-grow: 1;
 }
 
 .car-name {
-    font-size: 20px;
-    font-weight: 500;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    height: 2.4em; 
     line-height: 1.2;
-    color: #1E1E1E;
-    margin: 0;
+    overflow: hidden;
 }
 
 .car-meta {
@@ -3253,18 +3291,20 @@ body {
 
 .car-desc {
     font-size: 14px;
-    color: #444;
-    font-weight: 300;
+    margin-bottom: 20px;
+    margin-top: 5px;      
+    margin-bottom: 25px;
+    height: 4.5em; 
     line-height: 1.5;
-    margin: 0;
-    /* Limit description to 2 lines for uniformity */
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;  
     overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3; /* Keep this for older browsers */
+    line-clamp: 3;
 }
 
 .btn-details {
+    display: block;
     background: #FDC933;
     color: #000;
     text-align: center;
@@ -3273,7 +3313,7 @@ body {
     border-radius: 5px;
     font-weight: 500;
     font-size: 16px;
-    margin-top: 10px;
+    margin-top: auto;
     transition: background 0.2s;
 }
 
@@ -3310,9 +3350,27 @@ body {
 @media (max-width: 768px) {
     .filter-bar {
         flex-direction: column;
+        gap: 10px;
+        padding: 0 15px;
     }
     .f-input, .f-select, .f-btn-search {
         width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .filter-bar 
+    .f-input-search, 
+    .f-select, 
+    .f-input, 
+    .f-btn-filter {
+        width: 100% !important;
+        flex: none !important;
+        height: 50px;
+    }
+    .filter-wrapper + .catalogue-container h1 {
+        font-size: 24px;
+        text-align: center;
     }
 }
 
@@ -3321,14 +3379,23 @@ body {
     max-width: 1152px;
     margin: 0 auto;
     padding: 60px 20px;
+    width: 100%;
     font-family: 'Poppins', sans-serif;
+}
+
+.container-center {
+    max-width: 1200px; 
+    width: 100%;
+    margin: 0 auto;    
+    padding: 0 20px;   /* This MUST be the same everywhere */
+    box-sizing: border-box;
 }
 
 /* Breadcrumbs */
 .breadcrumb-container {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     margin-bottom: 27px;
     font-size: 14px;
     color: #5C5C5C;
@@ -3341,8 +3408,11 @@ body {
 /* Grid Structure */
 .details-grid {
     display: grid;
-    grid-template-columns: 760px 1fr;
-    gap: 24px;
+    grid-template-columns: 1fr 350px;
+   
+    gap: 30px;
+    margin-top: 20px;
+    align-items: start;
 }
 
 /* Left Content */
@@ -3386,19 +3456,29 @@ body {
 
 .overview-items {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.ov-item {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
 }
 
 .ov-item label {
-    display: block;
-    color: #5C5C5C;
-    font-size: 14px;
+    font-size: 12px;
+    color: #888;
+    text-transform: uppercase;
 }
 
 .ov-item span {
-    font-weight: 500;
-    color: #1E1E1E;
+    font-weight: 600;
+    font-size: 16px;
 }
 
 /* Sidebar Styling */
@@ -3570,7 +3650,28 @@ body {
     width: 100%; /* Full width on mobile */
 }
 
+@media (max-width: 992px) {
+    /* 1. Reset the grid completely */
+    .details-grid {
+        display: flex !important;
+        flex-direction: column !important;
+    }
 
+    /* 2. Ensure the image container is first */
+    .main-content {
+        display: block !important;
+        order: 1 !important;
+        width: 100% !important;
+    }
+
+    /* 3. Force the sidebar (Price/Title) to be second */
+    .sidebar {
+        display: block !important;
+        order: 2 !important;
+        width: 100% !important;
+        margin-top: 30px !important;
+    }
+}
 
 /* --- 2. DESKTOP LAYOUT (Screens larger than 992px) --- */
 @media (min-width: 992px) {
@@ -3598,14 +3699,24 @@ body {
 }
 
 /* --- 4. THE OVERVIEW GRID FIX --- */
-.overview-items {
-    display: flex;
-    flex-wrap: wrap;      /* Allows items to jump to next line */
-    gap: 30px 60px;
-}
+@media (max-width: 768px) {
+    /* Ensure the container is visible and large enough */
+    .overview-items {
+        display: flex !important;
+        flex-wrap: wrap !important; /* Better than grid for debugging */
+        gap: 10px !important;
+        padding: 20px !important;
+        background: #ffffff !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
 
-.ov-item {
-    min-width: 120px;     /* Ensures text doesn't overlap labels */
+    .ov-item {
+        flex: 0 0 calc(50% - 10px); /* Forces exactly 2 items per row */
+        display: block !important;
+        min-height: 50px;
+        border-bottom: 1px solid #f0f0f0;
+    }
 }
 
 @media (max-width: 576px) {
@@ -3613,4 +3724,104 @@ body {
         display: grid;
         grid-template-columns: 1fr 1fr; /* 2 clean columns on small phones */
     }
+}
+
+/* 1. Main Container: Ensures the whole pagination block is centered on the page */
+.pagination-wrapper {
+    margin: 50px 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* 2. Target the internal navigation list to be a straight line */
+.pagination-wrapper nav ul,
+.pagination-wrapper nav div.flex.items-center.justify-between div:last-child span {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+/* 3. Style the boxes to look like a single joined unit */
+.pagination-wrapper a, 
+.pagination-wrapper span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 45px;
+    height: 45px;
+    padding: 0 15px;
+    border: 1px solid #dee2e6; /* Light gray border */
+    background: #fff;
+    color: #333;
+    text-decoration: none;
+    margin-left: -1px; /* This makes the boxes overlap their borders into a single line */
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+/* 4. Active Page: Your brand yellow */
+.pagination-wrapper span[aria-current="page"],
+.pagination-wrapper .active span {
+    background-color: #ffc107 !important;
+    border-color: #ffc107 !important;
+    color: #000 !important;
+    z-index: 2; /* Keeps the yellow border on top of the gray ones */
+}
+
+/* 5. Hover and Arrows */
+.pagination-wrapper a:hover {
+    background-color: #f8f9fa;
+    z-index: 1;
+}
+
+.pagination-wrapper svg {
+    width: 20px;
+    height: 20px;
+    stroke-width: 3; /* Makes the arrows look bolder like your reference */
+}
+
+/* 6. Hide the "Showing 1 to 20 of 61 results" text if it's cluttering the line */
+.pagination-wrapper nav div:first-child {
+    display: none !important;
+}
+
+.no-results-box {
+    grid-column: 1 / -1; /* Spans all 4 columns */
+    text-align: center;
+    padding: 80px 20px;
+    background: #f8f9fa;
+    border-radius: 15px;
+    border: 2px dashed #dee2e6;
+}
+
+.no-results-box i {
+    font-size: 40px;
+    color: #FDC933;
+    margin-bottom: 20px;
+}
+
+.no-results-box h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.btn-clear {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 25px;
+    background: #000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+}
+
+.btn-clear:hover {
+    background: #FDC933;
+    color: #000;
 }

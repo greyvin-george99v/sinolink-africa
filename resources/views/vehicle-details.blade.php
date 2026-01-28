@@ -5,6 +5,7 @@
 @section('content')
 
 <div class="vehicle-details-page">
+    <div class="container-center">
     <nav class="breadcrumb-container">
         <a href="/">Home</a>
         <i class="fa-solid fa-chevron-right"></i>
@@ -13,7 +14,7 @@
         <span class="active-item">{{ $vehicle['name'] }}</span>
     </nav>
 
-    <<div class="details-grid">
+    <div class="details-grid">
     <div class="main-content">
         <div class="hero-image-wrapper">
             <img src="{{ asset('images/' . $vehicle['image']) }}" alt="{{ $vehicle['name'] }}">
@@ -94,6 +95,8 @@
             </div>   
         </div>
     </aside>
+
+</div>
 </div>
 
 @endsection

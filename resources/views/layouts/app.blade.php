@@ -81,7 +81,6 @@
             <li><a href="{{ url('/media') }}" class="{{ Request::is('media') ? 'active' : '' }}">MEDIA</a></li>
             <li><a href="{{ url('/coverage') }}" class="{{ Request::is('coverage') ? 'active' : '' }}">COVERAGE</a></li>
             <li><a href="{{ url('/contact') }}" class="{{ Request::is('contact') ? 'active' : '' }}">CONTACTS</a></li>
-            <li><a href="{{ url('/details') }}" class="{{ Request::is('details') ? 'active' : '' }}">DETAILS</a></li>
             
             <li class="mobile-quote-container">
                 <a href="{{ url('/contact') }}" class="btn-quote-mobile">REQUEST A QUOTE</a>
