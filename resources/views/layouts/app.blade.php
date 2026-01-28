@@ -34,7 +34,7 @@
                     <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
                     <div class="info-text">
                         <span class="info-label">SUPPORT INQUIRIES</span>
-                        <span class="info-value">info@sinolink.com</span>
+                        <span class="info-value">info@sinolink.africa</span>
                     </div>
                 </div>
 
@@ -76,6 +76,7 @@
         <ul class="nav-links" id="nav-list">
             <li><a href="{{ url('/') }}">HOME</a></li>
             <li><a href="{{ url('/about') }}" class="{{ Request::is('about') ? 'active' : '' }}">ABOUT US</a></li>
+            <li><a href="{{ url('/catalogue') }}" class="{{ Request::is('catalogue') ? 'active' : '' }}">CATALOGUE</a></li>
             <li><a href="{{ url('/services') }}" class="{{ Request::is('services') ? 'active' : '' }}">SERVICES</a></li>
             <li><a href="{{ url('/media') }}" class="{{ Request::is('media') ? 'active' : '' }}">MEDIA</a></li>
             <li><a href="{{ url('/coverage') }}" class="{{ Request::is('coverage') ? 'active' : '' }}">COVERAGE</a></li>
@@ -150,7 +151,7 @@
                 </div>
                 <div class="contact-item">
                     <i class="fa-solid fa-envelope footer-icon"></i>
-                    <span>info@sinolink.com</span>
+                    <span>info@sinolink.africa</span>
                 </div>
                 <div class="contact-item">
                     <i class="fa-solid fa-map-pin footer-icon"></i>

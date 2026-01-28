@@ -3066,6 +3066,7 @@ body {
 }
 
 
+
 @media (max-width: 768px) {
     .cookie-content {
         flex-direction: column;
@@ -3101,4 +3102,263 @@ body {
 @keyframes slideIn {
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+/* Container & Layout */
+/* 1. Full-width Background for the bar */
+.filter-wrapper {
+    width: 100%;
+    background: #ffffff; /* Figma shows white background for the whole strip */
+    border-bottom: 1px solid #E0E0E0;
+    padding: 20px 0;
+}
+
+/* 2. Centered container for filter content */
+.container-center {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 3. Filter Bar Layout */
+.filter-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+/* 4. SEARCH INPUT WIDTH FIX (Figma Match) */
+.f-input-search {
+    flex: 2; /* Makes it wider than others */
+    min-width: 250px; 
+    padding: 10px 15px;
+    border: 1px solid #9A9A9A;
+    border-radius: 5px;
+}
+
+/* 5. Other Inputs Width */
+.f-input, .f-select {
+    flex: 1;
+    min-width: 120px;
+    padding: 10px;
+    border: 1px solid #9A9A9A;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.f-btn-search {
+    background: #FDC933;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+/* 6. Grid Spacing Fix */
+.catalogue-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 20px 80px 20px; /* Reduced top padding to 30px */
+}
+
+.catalogue-grid {
+    display: grid;
+    /* Changed from 3 to 4 */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 30px 24px;
+}
+
+/* Hover Effect */
+.car-card {
+    background: #ffffff;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    border: 1px solid #D1D1D1;
+}
+
+.car-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    border-color: #f0f0f0;
+}
+
+/* Rest of your car card styles (car-img, price-pill, etc.) stay the same */
+
+.car-card-top {
+    position: relative;
+    width: 100%;
+}
+
+.car-img {
+    width: 100%;
+    height: 227px;
+    object-fit: cover;
+    display: block;
+}
+
+.price-pill {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    background: #FF0000;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    z-index: 2;
+}
+
+.car-card-bottom {
+    padding: 17px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.car-name {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.2;
+    color: #1E1E1E;
+    margin: 0;
+}
+
+.car-meta {
+    display: flex;
+    gap: 15px;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 13px;
+    color: #5C5C5C;
+}
+
+.yellow-square {
+    width: 18px;
+    height: 18px;
+    background-color: #FDC933;
+    border-radius: 3px;
+}
+
+.car-desc {
+    font-size: 14px;
+    color: #444;
+    font-weight: 300;
+    line-height: 1.5;
+    margin: 0;
+    /* Limit description to 2 lines for uniformity */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+}
+
+.btn-details {
+    background: #FDC933;
+    color: #000;
+    text-align: center;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: background 0.2s;
+}
+
+.yellow-icon {
+    color: #FDC933; /* Matches your brand yellow */
+    font-size: 12px;
+    width: 14px; /* Fixed width prevents text from jumping */
+    display: inline-flex;
+    justify-content: center;
+}
+
+.car-meta {
+    display: flex;
+    justify-content: space-between; /* Spreads them out evenly */
+    gap: 5px; 
+    margin-top: 8px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* Button Hover State */
+.btn-details:hover {
+    background: #e5b62d;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .catalogue-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 650px) {
+    .catalogue-grid { grid-template-columns: 1fr; }
+}
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .filter-bar {
+        flex-direction: column;
+    }
+    .f-input, .f-select, .f-btn-search {
+        width: 100%;
+    }
+}
+
+.pagination-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+
+.pagination {
+    display: flex;
+    border: 1px solid #E0E0E0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.page-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    border-right: 1px solid #E0E0E0;
+    background-color: #fff;
+    transition: background 0.2s;
+}
+
+/* Remove border from the last item (the arrow) */
+.page-link:last-child {
+    border-right: none;
+}
+
+/* The Yellow Active State */
+.page-link.active {
+    background-color: #FDC933; /* Your brand yellow */
+    color: #000;
+}
+
+.page-link:hover:not(.active) {
+    background-color: #f8f9fb;
+}
+
+.page-link.next {
+    font-size: 12px;
 }
