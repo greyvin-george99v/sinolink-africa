@@ -48,3 +48,10 @@ Route::middleware('auth.basic')->group(function () {
     Route::get('/admin/inquiries', [InquiryController::class, 'index'])->name('admin.inquiries');
     Route::get('/admin/inquiries/export', [InquiryController::class, 'exportCsv'])->name('admin.inquiries.export');
 });
+
+Route::get('/clear-site', function() {
+    Artisan::call('view:clear');
+    Artisan::call('cache:clear');
+    Artisan::call('config:clear');
+    return "Cache is cleared! Delete this route now.";
+});
