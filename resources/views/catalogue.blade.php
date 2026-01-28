@@ -65,40 +65,44 @@
 <div class="catalogue-container">
 
   <div class="catalogue-grid">
-    @for ($i = 1; $i <= 12; $i++)
-        <div class="car-card">
-            <div class="car-card-top">
-                {{-- Dynamic Image --}}
-                <img src="{{ asset('images/Sinolink-' . $i . '.jpg') }}" alt="Car" class="car-img">
-                
-                {{-- Dynamic Price --}}
-                <div class="price-pill">{{ $cars[$i]['price'] ?? '$5,000' }}</div>
-            </div>
-            
-            <div class="car-card-bottom">
-                {{-- Dynamic Name --}}
-                <h3 class="car-name">{{ $cars[$i]['name'] ?? 'Toyota Highlander 2009 2.7L 2WD' }}</h3>
-                
-                <div class="car-meta">
-                    <div class="meta-item">
-                        <i class="fa-regular fa-calendar yellow-icon"></i> 
-                        {{ $cars[$i]['year'] ?? '2008' }}
-                    </div>
-                    <div class="meta-item">
-                        <i class="fa-solid fa-gauge-high yellow-icon"></i> 200,000 km
-                    </div>
-                    <div class="meta-item">
-                        <i class="fa-solid fa-gas-pump yellow-icon"></i> 
-                        {{ $cars[$i]['fuel'] ?? 'Essence' }}
-                    </div>
-                </div>
-
-                <p class="car-desc">5-seater SUV equipped with airbags (driver/passenger, side, curtains and knees), anc...</p>
-                
-                <a href="#" class="btn-details">See details</a>
-            </div>
+    @foreach ($vehicles as $id => $car)
+    <div class="car-card">
+        <div class="car-card-top">
+            <img src="{{ asset('images/' . ($car['image'] ?? 'Sinolink-' . $id . '.jpg')) }}" alt="Car" class="car-img">
+            <div class="price-pill">${{ number_format($car['price'] ?? 5000) }}</div>
         </div>
-    @endfor
+        
+        <div class="car-card-bottom">
+            {{-- Dynamic Name from your array --}}
+            <h3 class="car-name">{{ $car['name'] ?? 'Toyota Highlander 2009' }}</h3>
+            
+            <div class="car-meta">
+                <div class="meta-item">
+                    <i class="fa-regular fa-calendar yellow-icon"></i> 
+                    {{ $car['year'] ?? '2008' }}
+                </div>
+                <div class="meta-item">
+                    <i class="fa-solid fa-gauge-high yellow-icon"></i> 
+                    {{ $car['km'] ?? '200,000 km' }}
+                </div>
+                <div class="meta-item">
+                    <i class="fa-solid fa-gas-pump yellow-icon"></i> 
+                    {{ $car['fuel'] ?? 'Essence' }}
+                </div>
+            </div>
+
+         
+            <p class="car-desc">{{ \Illuminate\Support\Str::limit($car['desc'] ?? '5-seater SUV equipped with airbags...', 85) }}</p>
+            
+            
+            <a href="{{ route('vehicle.details', ['id' => $id]) }}" class="btn-details">See details</a>
+        </div>
+    </div>
+@endforeach
+
+<div class="pagination-wrapper">
+    {{ $vehicles->links() }}
+</div>
 </div>
 
 </div>

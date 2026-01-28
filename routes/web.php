@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\VehicleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\InquiryController;
 
@@ -11,15 +12,9 @@ Route::get('/about', function () {
     return view('about');
 })->name('about');
 
-Route::get('/catalogue', function () {
-    return view('catalogue');
-})->name('catalogue');
+Route::get('/catalogue', [VehicleController::class, 'catalogue'])->name('catalogue');
 
-
-
-Route::get('/details', function () {
-    return view('vehicle-details');
-});
+Route::get('/vehicle/{id}', [VehicleController::class, 'show'])->name('vehicle.details');
 
 Route::get('/services', function () {
     return view('services');

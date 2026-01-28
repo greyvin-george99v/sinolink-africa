@@ -1,0 +1,1 @@
+dollar stream_get_line<div class="price-pill">${{ number_format($car['price']) }}</div> 
