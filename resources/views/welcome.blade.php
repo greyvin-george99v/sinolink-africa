@@ -73,7 +73,7 @@
             </div>
 
             <div class="hero-actions">
-                <a href="{{ url('/about') }}" class="hero-btn-red">LEARN MORE</a>
+                <a href="{{ url('/catalogue') }}" class="hero-btn-red">View Catalogue</a>
                 <a href="https://www.youtube.com/embed/r6p60mXqfEw?autoplay=1" class="watch-video" data-lity>
                     <div class="play-btn-wrapper">
                         <div class="play-circle"><i class="fa-solid fa-play"></i></div>
