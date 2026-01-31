@@ -101,7 +101,7 @@
 
                     <p class="car-desc">{{ \Illuminate\Support\Str::limit($car['desc'] ?? '5-seater SUV equipped with airbags...', 85) }}</p>
                     
-                    <a href="{{ route('vehicle.details', ['id' => $id]) }}" class="btn-details">See details</a>
+                    <a href="{{ url('/vehicles/' . ($car['slug'] ?? '')) }}" class="btn-details">View Details</a>
                 </div>
             </div>
         @endforeach

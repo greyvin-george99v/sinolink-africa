@@ -70,8 +70,13 @@
 
         <div class="sidebar-card action-card">
             <h3 class="card-title">Speak with an Agent</h3>
-            {{-- Dynamic WhatsApp Link including the car name in the message --}}
-            <a href="https://wa.me/254713688640?text=I am interested in the {{ $vehicle['name'] }}" class="btn-whatsapp" target="_blank">
+    @php
+        $referrer = session('referrer');
+        $refText = $referrer ? ' (Referral Code: ' . $referrer . ')' : '';
+        $fullMessage = "I am interested in the " . $vehicle['name'] . $refText;
+    @endphp
+
+            <a href="https://wa.me/254713688640?text={{ urlencode($fullMessage) }}" class="btn-whatsapp" target="_blank">
                 <i class="fa-brands fa-whatsapp"></i> Order on Whatsapp
             </a>
             <a href="{{ route('catalogue') }}" class="btn-outline-yellow">Return to Catalogue</a>

@@ -40,7 +40,6 @@
                 <h3>Quick Contact</h3>
                 <p>
                     Call on: <a href="tel:+254713688640" class="contact-link">(+254) 713 688640</a><br>
-                    <span style="margin-left: 55px;"></span><a href="tel:+8613073059539" class="contact-link">(+86) 130 7305 9539</a><br>
                     Mail at: <a href="mailto:info@sinolink.com" class="contact-link">info@sinolink.Africa</a>
                 </p>
             </div>

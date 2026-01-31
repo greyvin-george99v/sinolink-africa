@@ -44,7 +44,6 @@
                        <span class="info-label">CALL US</span>
                         <div class="mobile-numbers">
                             <a href="tel:+254713688640" class="info-value">+254 713 688 640</a>
-                            <a href="tel:+8613073059539" class="info-value">+86 130 7305 9539</a>
                             
                         </div>
                     </div>
@@ -147,7 +146,7 @@
             <div class="footer-contact-info">
                 <div class="contact-item">
                     <i class="fa-solid fa-phone footer-icon"></i>
-                    <span>+254 713 688640<br>+86 130 7305 9539</span>
+                    <span>+254 713 688640</span>
                 </div>
                 <div class="contact-item">
                     <i class="fa-solid fa-envelope footer-icon"></i>

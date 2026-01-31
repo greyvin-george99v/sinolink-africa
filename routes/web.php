@@ -14,7 +14,7 @@ Route::get('/about', function () {
 
 Route::get('/catalogue', [VehicleController::class, 'catalogue'])->name('catalogue');
 
-Route::get('/vehicle/{id}', [VehicleController::class, 'show'])->name('vehicle.details');
+Route::get('/vehicles/{slug}', [VehicleController::class, 'show'])->name('vehicle.show');
 
 Route::get('/services', function () {
     return view('services');

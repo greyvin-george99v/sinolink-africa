@@ -12,6 +12,7 @@ class VehicleController extends Controller
         return collect([
             1 => [
             'name' => 'Lexus RX Classic 350',
+            'slug' => 'Lexus-RX-Classic-350',
             'price' => 4890,
             'year' => '2007',
             'km' => '130,000 km',
@@ -23,6 +24,7 @@ class VehicleController extends Controller
         ],
             2 => [
             'name' => 'Audi Q5 2.0 TFSI Technology Edition',
+            'slug' => 'Audi-Q5-2.0-TFSI-Technology-Edition',
             'price' => 4300,
             'year' => '2010',
             'km' => '125,000 km',
@@ -34,6 +36,7 @@ class VehicleController extends Controller
         ],
             3 => [
             'name' => 'Volkswagen Tiguan 1.8 TSI Automatique 4x4 Édition Fashion',
+            'slug' => 'Volkswagen-Tiguan-1.8-TSI-Automatique-4x4-Édition-Fashion',
             'price' => 2750,
             'year' => '2010',
             'km' => '125,000 km',
@@ -45,6 +48,7 @@ class VehicleController extends Controller
         ],
             4 => [
             'name' => 'Suzuki Alto 1.0L Deluxe Edition',
+            'slug' => 'Suzuki-Alto-1.0L-Deluxe-Edition',
             'price' => 1900,
             'year' => '2013',
             'km' => '100,000 km',
@@ -56,6 +60,7 @@ class VehicleController extends Controller
         ],    
             5 => [
             'name' => 'Jetour X90 1.5T (5 seats)',
+            'slug' => 'Jetour-X90-1.5T-(5-seats)',
             'price' => 5300,
             'year' => '2019',
             'km' => '60,000 km',
@@ -67,6 +72,7 @@ class VehicleController extends Controller
         ],
             6 => [
             'name' => 'Hyundai Tucson 1.6T',
+            'slug' => 'Hyundai-Tucson-1.6T',
             'price' => 7800,
             'year' => '2018',
             'km' => '87,200 km',
@@ -78,6 +84,7 @@ class VehicleController extends Controller
         ],
             7 => [
             'name' => 'Land Rover Range Rover Evoque 2.0T',
+            'slug' => 'Land-Rover-Range-Rover-Evoque-2.0T',
             'price' => 7800,
             'year' => ' 2013',
             'km' => '115,000 km',
@@ -89,6 +96,7 @@ class VehicleController extends Controller
         ],
             8 => [
             'name' => 'Jeep Renegade (Freedom Man) 1.4T',
+            'slug' => 'Jeep-Renegade-(Freedom-Man)-1.4T',
             'price' => 5600,
             'year' => '2017',
             'km' => '95,000 km',
@@ -100,6 +108,7 @@ class VehicleController extends Controller
         ],
             9 => [
             'name' => 'Jetour X70 Plus 1.6T (5 seats)',
+            'slug' => 'Jetour-X70-Plus-1.6T-(5-seats)',
             'price' => 11600,
             'year' => '2023',
             'km' => '57,712 km',
@@ -111,6 +120,7 @@ class VehicleController extends Controller
         ],
             10 => [
             'name' => 'Toyota Highlander 2.0T 4WD',
+            'slug' => 'Toyota-Highlander-2.0T-4WD',
             'price' => 15600,
             'year' => '2016',
             'km' => '95,000 km',
@@ -122,6 +132,7 @@ class VehicleController extends Controller
         ],
             11 => [
             'name' => 'Jetour Shan Hai T2 Mountain Edition',
+            'slug' => 'Jetour-Shan-Hai-T2-Mountain-Edition',
             'price' => 21600,
             'year' => '2024',
             'km' => '208 km',
@@ -133,6 +144,7 @@ class VehicleController extends Controller
         ],
             12 => [
             'name' => 'Toyota Prado 2.7L 4WD (8 seats)',
+            'slug' => 'Toyota-Prado-2.7L-4WD-(8-seats)',
             'price' => 7800,
             'year' => '2004',
             'km' => '310,990 km',
@@ -144,6 +156,7 @@ class VehicleController extends Controller
         ],
             13 => [
             'name' => 'Lexus RX350 3.5L 4WD',
+            'slug' => 'Lexus-RX350-3.5L-4WD',
             'price' => 5100,
             'year' => '2006',
             'km' => '180,000 km',
@@ -155,6 +168,7 @@ class VehicleController extends Controller
         ],
             14 => [
             'name' => 'Toyota RAV4',
+            'slug' => 'Toyota-RAV4',
             'price' => 4300,
             'year' => '2009',
             'km' => '125,000 km',
@@ -166,6 +180,7 @@ class VehicleController extends Controller
         ],
             15 => [
             'name' => 'Hyundai Verna 1.4L',
+            'slug' => 'Hyundai-Verna-1.4L',
             'price' => 2700,
             'year' => '2011',
             'km' => '110,000 km',
@@ -188,6 +203,7 @@ class VehicleController extends Controller
         ],
             17 => [
             'name' => 'Mercedes-Benz Vito',
+            'slug' => 'Mercedes-Benz-Vito',
             'price' => 19200,
             'year' => '2019',
             'km' => '70,000 km',
@@ -199,6 +215,7 @@ class VehicleController extends Controller
         ],
             18 => [
             'name' => 'Jeep Wrangler Sahara 3.8L',
+            'slug' => 'Jeep-Wrangler-Sahara-3.8L',
             'price' => 9800,
             'year' => '2010',
             'km' => '120,000 km',
@@ -210,6 +227,7 @@ class VehicleController extends Controller
         ],
             19 => [
             'name' => 'Jetour X70 PLUS (Powerful 1.6T version)',
+            'slug' => 'Jetour-X70-PLUS-(Powerful-1.6T-version)',
             'price' => 12100,
             'year' => '2023',
             'km' => '26,000 km',
@@ -221,6 +239,7 @@ class VehicleController extends Controller
         ],
             20 => [
             'name' => 'Mercedes-Benz GLC Coupe (imported) GLC 260 4MATIC Coupe SUV',
+            'slug' => 'Mercedes-Benz-GLC-Coupe-(imported)-GLC-260-4MATIC-Coupe-SUV',
             'price' => 28206,
             'year' => '2020',
             'km' => '68,000 km',
@@ -232,6 +251,7 @@ class VehicleController extends Controller
         ],
             21 => [
             'name' => 'Mercedes-Benz Classe CLA 220 4MATIC',
+            'slug' => 'Mercedes-Benz-Classe-CLA-220-4MATIC',
             'price' => 14024,
             'year' => '2018',
             'km' => '75,000 km',
@@ -243,6 +263,7 @@ class VehicleController extends Controller
         ],
             22 => [
             'name' => 'Changan UNI-T Flagship Edition 1.5T',
+            'slug' => 'Changan-UNI-T-Flagship-Edition-1.5T',
             'price' => 10551,
             'year' => '2021',
             'km' => '25,000 km',
@@ -254,6 +275,7 @@ class VehicleController extends Controller
         ],
             23 => [
             'name' => 'Jetour X70 PLUS 1.6T DCT 5 seater',
+            'slug' => 'Jetour-X70-PLUS-1.6T-DCT-5-seater',
             'price' => 10136,
             'year' => '2021',
             'km' => '40,000 km',
@@ -265,6 +287,7 @@ class VehicleController extends Controller
         ],
             24 => [
             'name' => 'Mazda CX-5 Cloud Control Edition 2.0L Automatic 2WD Smart Model',
+            'slug' => 'Mazda-CX-5-Cloud-Control-Edition-2.0L-Automatic-2WD-Smart-Model',
             'price' => 9859,
             'year' => '2019',
             'km' => '50,000 km',
@@ -276,6 +299,7 @@ class VehicleController extends Controller
         ],
             25 => [
             'name' => 'Jetour X70 PLUS 1.5T DCT MTB PRO 5 seater',
+            'slug' => 'Jetour-X70-PLUS-1.5T-DCT-MTB-PRO-5-seater',
             'price' => 9581,
             'year' => '2021',
             'km' => '51,000 km',
@@ -287,6 +311,7 @@ class VehicleController extends Controller
         ],
             26 => [
             'name' => 'Kia Sportage 2.0L Automatic Smart Luxury Edition',
+            'slug' => 'Kia-Sportage-2.0L-Automatic-Smart-Luxury-Edition',
             'price' => 9165,
             'year' => '2019',
             'km' => '50,000 km',
@@ -298,6 +323,7 @@ class VehicleController extends Controller
         ],
             27 => [
             'name' => 'Toyota Prado (Imported) GX 2700 Class Automatic',
+            'slug' => 'Toyota-Prado-(Imported)-GX-2700-Class-Automatic',
             'price' => 8902,
             'year' => '2007',
             'km' => '290,000 km',
@@ -309,6 +335,7 @@ class VehicleController extends Controller
         ],
             28 => [
             'name' => 'Changan CS55 PLUS Whale Edition',
+            'slug' => 'Changan-CS55-PLUS-Whale-Edition',
             'price' => 8749,
             'year' => '2021',
             'km' => '40,000 km',
@@ -320,6 +347,7 @@ class VehicleController extends Controller
         ],
             29 => [
             'name' => 'Toyota IZOA 2.0L Aeolus Edition',
+            'slug' => 'Toyota-IZOA-2.0L-Aeolus-Edition',
             'price' => 8749,
             'year' => '2019',
             'km' => '66,000 km',
@@ -331,6 +359,7 @@ class VehicleController extends Controller
         ],
             30 => [
             'name' => 'Changan Oushang X5 1.5T DCT Flagship Edition',
+            'slug' => 'Changan-Oushang-X5-1.5T-DCT-Flagship-Edition',
             'price' => 8472,
             'year' => '2021',
             'km' => '27,000 km',
@@ -342,6 +371,7 @@ class VehicleController extends Controller
         ],
             31 => [
             'name' => 'Toyota Reiz 2.5V Premium Edition',
+            'slug' => 'Toyota Reiz 2.5V Premium Edition',
             'price' => 8472,
             'year' => '2014',
             'km' => '160,000 km',
@@ -352,6 +382,7 @@ class VehicleController extends Controller
         ],
             32 => [
             'name' => 'Toyota RAV4 2.0L CVT 2WD Urban Edition',
+            'slug' => 'Toyota-RAV4-2.0L-CVT-2WD-Urban-Edition',
             'price' => 6498,
             'year' => '2014',
             'km' => '85,000 km',
@@ -363,6 +394,7 @@ class VehicleController extends Controller
         ],
             33 => [
             'name' => 'Kia KX5 1.6T Automatic 2WD Premium',
+            'slug' => 'Kia-KX5-1.6T-Automatic-2WD-Premium',
             'price' => 7087,
             'year' => '2016',
             'km' => '30,000 km',
@@ -374,6 +406,7 @@ class VehicleController extends Controller
         ],
             34 => [
             'name' => 'Toyota RAV4 2.0L CVT 2WD Urban Edition',
+            'slug' => 'Toyota-RAV4-2.0L-CVT-2WD-Urban-Edition',
             'price' => 6671,
             'year' => '2013',
             'km' => '94,000 km',
@@ -385,6 +418,7 @@ class VehicleController extends Controller
         ],
             35 => [
             'name' => 'Kia Sportage 2.0L Automatic 2WD GL',
+            'slug' => 'Kia-Sportage-2.0L-Automatic-2WD-GL',
             'price' => 6352,
             'year' => '2017',
             'km' => '6,532 km',
@@ -396,6 +430,7 @@ class VehicleController extends Controller
         ],
             36 => [
             'name' => 'Hyundai Tucson 1.6T dual-clutch and two-wheel drive',
+            'slug' => 'Hyundai-Tucson-1.6T-dual-clutch-and-two-wheel-drive',
             'price' => 6352,
             'year' => '2016',
             'km' => '90,000 km',
@@ -407,6 +442,7 @@ class VehicleController extends Controller
         ],
             37 => [
             'name' => 'Hyundai Tucson 1.6T dual-clutch and two-wheel drive',
+            'slug' => 'Hyundai-Tucson-1.6T-dual-clutch-and-two-wheel-drive',
             'price' => 6394,
             'year' => '2016',
             'km' => '76,000 km',
@@ -418,6 +454,7 @@ class VehicleController extends Controller
         ],
             38 => [
             'name' => 'Kia Sportage 2.0L Automatic 2WD DLX',
+            'slug' => 'Kia-Sportage-2.0L-Automatic-2WD-DLX',
             'price' => 5978,
             'year' => '2016',
             'km' => '100,000 km',
@@ -429,6 +466,7 @@ class VehicleController extends Controller
         ],
             39 => [
             'name' => 'Hyundai Tucson 1.6T dual-clutch and two-wheel drive',
+            'slug' => 'Hyundai-Tucson-1.6T-dual-clutch-and-two-wheel-drive',
             'price' => 5978,
             'year' => '2015',
             'km' => '133,000 km',
@@ -440,6 +478,7 @@ class VehicleController extends Controller
         ],
             40 => [
             'name' => 'Geely Binyue',
+            'slug' => 'Geely-Binyue',
             'price' => 5978,
             'year' => '2019',
             'km' => '50,000 km',
@@ -451,6 +490,7 @@ class VehicleController extends Controller
         ],
             41 => [
             'name' => '2009 Toyota Highlander 2.7L 2WD 5-passenger Elite Edition',
+            'slug' => '2009-Toyota- Highlander-2.7L-2WD-5-passenger-Elite-Edition',
             'price' => 5146,
             'year' => '2008',
             'km' => '200,000 km',
@@ -462,6 +502,7 @@ class VehicleController extends Controller
         ],
             42 => [
             'name' => 'Toyota Yaris 1.3E Comfort Edition',
+            'slug' => 'Toyota-Yaris-1.3E-Comfort-Edition',
             'price' => 2915,
             'year' => '2008',
             'km' => '99,000 km',
@@ -473,6 +514,7 @@ class VehicleController extends Controller
         ],
             43 => [
             'name' => 'Zotye SR7 2016 1.5T CVT Magic Cube Edition',
+            'slug' => 'Zotye-SR7-2016-1.5T-CVT-Magic-Cube-Edition',
             'price' => 2915,
             'year' => '2017',
             'km' => '61,000 km',
@@ -484,6 +526,7 @@ class VehicleController extends Controller
         ],
             44 => [
             'name' => 'Zotye SR7 2016 1.5T CVT Magic Cube Edition',
+            'slug' => 'Zotye-SR7-2016-1.5T-CVT-Magic-Cube-Edition',
             'price' => 3151,
             'year' => '2016',
             'km' => '105,000 km',
@@ -495,6 +538,7 @@ class VehicleController extends Controller
         ],
             45 => [
             'name' => 'Honda Fit 1.5L manual',
+            'slug' => 'Honda-Fit-1.5L-manual',
             'price' => 3085,
             'year' => '2005',
             'km' => '180,000 km',
@@ -506,6 +550,7 @@ class VehicleController extends Controller
         ],
             46 => [
             'name' => 'BAIC Huansu S5 2017 1.3T CVT Luxury Edition',
+            'slug' => 'BAIC-Huansu-S5-2017-1.3T-CVT-Luxury-Edition',
             'price' => 3203,
             'year' => '2015',
             'km' => '50,000 km',
@@ -517,6 +562,7 @@ class VehicleController extends Controller
         ],
             47 => [
             'name' => '2004 Toyota Corolla 1.8L Automatic GL-i',
+            'slug' => '2004-Toyota-Corolla-1.8L-Automatic-GL-i',
             'price' => 3294,
             'year' => '2006',
             'km' => '250,000 km',
@@ -528,6 +574,7 @@ class VehicleController extends Controller
         ],
             48 => [
             'name' => 'Haval H6 2016 Improved Version 1.5T Manual 2WD Elite',
+            'slug' => 'Haval-H6-2016-Improved-Version-1.5T-Manual-2WD-Elite',
             'price' => 3203,
             'year' => '2016',
             'km' => '100,000 km',
@@ -539,6 +586,7 @@ class VehicleController extends Controller
         ],
             49 => [
             'name' => 'Zotye R7 2017 1.5T CVT Magic Cube Edition',
+            'slug' => 'Zotye-R7-2017-1.5T-CVT-Magic-Cube-Edition',
             'price' => 3203,
             'year' => '2016',
             'km' => '100,000 km',
@@ -550,6 +598,7 @@ class VehicleController extends Controller
         ],
             50 => [
             'name' => '2011 Toyota Corolla 1.6L Manual GL',
+            'slug' => '2011-Toyota-Corolla-1.6L-Manual-GL',
             'price' => 3342,
             'year' => '2011',
             'km' => '134,000 km',
@@ -561,6 +610,7 @@ class VehicleController extends Controller
         ],
             51 => [
             'name' => '2013 Volkswagen Santana 1.6L Automatic Edition Mode',
+            'slug' => '2013-Volkswagen-Santana-1.6L-Automatic-Edition-Mode',
             'price' => 3342,
             'year' => '2014',
             'km' => '133,000 km',
@@ -572,6 +622,7 @@ class VehicleController extends Controller
         ],
             52 => [
             'name' => 'Zotye SR7 2017 1.5T CVT Magic Cube Dream Edition',
+            'slug' => 'Zotye-SR7-2017-1.5T-CVT-Magic-Cube-Dream-Edition',
             'price' => 3481,
             'year' => '2017',
             'km' => '95,000 km',
@@ -583,6 +634,7 @@ class VehicleController extends Controller
         ],
             53 => [
             'name' => 'Cheetah CS10 2017 2.0T Automatic Leader Edition',
+            'slug' => 'Cheetah-CS10-2017-2.0T-Automatic-Leader-Edition',
             'price' => 3481,
             'year' => '2017',
             'km' => '91,000 km',
@@ -594,6 +646,7 @@ class VehicleController extends Controller
         ],
             54 => [
             'name' => 'Zotye SR7 2017 1.5T CVT Magic Cube Dream Edition',
+            'slug' => 'Zotye-SR7-2017-1.5T-CVT-Magic-Cube-Dream-Edition',
             'price' => 3481,
             'year' => '2017',
             'km' => '120,000 km',
@@ -605,6 +658,7 @@ class VehicleController extends Controller
         ],
             55 => [
             'name' => 'Hyundai ix35 2012 2.0L Automatic 2WD Elite Edition GL (Beijing)',
+            'slug' => 'Hyundai ix35 2012 2.0L Automatic 2WD Elite Edition GL (Beijing)',
             'price' => 4034,
             'year' => '2013',
             'km' => '80,000 km',
@@ -616,6 +670,7 @@ class VehicleController extends Controller
         ],
             56 => [
             'name' => 'Geely Emgrand GS 2016 Sport Edition 1.3T Automatic Premium',
+            'slug' => 'Geely-Emgrand-GS-2016-Sport-Edition-1.3T-Automatic-Premium',
             'price' => 4172,
             'year' => '2016',
             'km' => '64,000 km',
@@ -627,6 +682,7 @@ class VehicleController extends Controller
         ],
             57 => [
             'name' => '2012 Kia Sorento 2.4L Petrol Luxury Edition',
+            'slug' => '2012-Kia-Sorento-2.4L-Petrol-Luxury-Edition',
             'price' => 4311,
             'year' => '2012',
             'km' => '60,000 km',
@@ -638,6 +694,7 @@ class VehicleController extends Controller
         ],
             58 => [
             'name' => 'Beijing Hyundai ix35 2013 2.0L Automatic 2WD Smart GLS',
+            'slug' => 'Beijing-Hyundai-ix35-2013-2.0L-Automatic-2WD-Smart-GLS',
             'price' => 4311,
             'year' => '2013',
             'km' => '88,000 km',
@@ -649,6 +706,7 @@ class VehicleController extends Controller
         ],
             59 => [
             'name' => 'Hyundai ix35 2012 2.0L Automatic 2WD Elite GLS (Beijing)',
+            'slug' => 'Hyundai-ix35-2012-2.0L-Automatic-2WD-Elite-GLS-(Beijing)',
             'price' => 4451,
             'year' => '2012',
             'km' => '110,000 km',
@@ -660,6 +718,7 @@ class VehicleController extends Controller
         ],
             60 => [
             'name' => '2009 Toyota RAV4 2.0L Automatic Deluxe Edition',
+            'slug' => '2009-Toyota-RAV4-2.0L-Automatic-Deluxe-Edition',
             'price' => 4590,
             'year' => '2010',
             'km' => '128,000 km',
@@ -671,6 +730,7 @@ class VehicleController extends Controller
         ],
             61 => [
             'name' => '2009 Toyota Reiz 2.5S Comfort Edition',
+            'slug' => '2009-Toyota-Reiz-2.5S-Comfort-Edition',
             'price' => 4590,
             'year' => '2009',
             'km' => '210,000 km',
@@ -753,18 +813,24 @@ class VehicleController extends Controller
 
     return view('catalogue', compact('vehicles'));
 }
-        public function show($id)
-        {
-            $vehicles = $this->getVehicles(); 
-            
-            if (!isset($vehicles[$id])) {
-                abort(404);
-            }
-
-            // Change 'car' to 'vehicle' here so it matches your Blade file
-            $vehicle = $vehicles[$id]; 
-            return view('vehicle-details', compact('vehicle'));
+    public function show($slug, \Illuminate\Http\Request $request)
+    {
+        // 1. If the URL has ?ref=AGENT01, save "AGENT01" to the browser session
+        if ($request->has('ref')) {
+            session(['referrer' => $request->query('ref')]);
         }
+
+        $vehicles = $this->getVehicles();
+        
+        // 2. Finding the car using the slug
+        $vehicle = $vehicles->firstWhere('slug', $slug);
+
+        if (!$vehicle) {
+            abort(404);
+        }
+
+        return view('vehicle-details', compact('vehicle'));
+}
 
 }
 
