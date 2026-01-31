@@ -3831,7 +3831,7 @@ body {
     width: 100%; /* Ensure it spans the full browser width */
     display: flex; /* Use flex instead of inline-flex */
     justify-content: center; /* Centers the 1152px card within the 1440px area */
-    padding: 50px 0;
+    padding: 100px 0;
 }
 
 .portal-inner-card {
@@ -3924,18 +3924,29 @@ body {
 }
 
 .btn-generate-yellow {
-    width: 189px;
-    padding: 10px;
+    width: 220px; /* Increased from 189px for better presence */
+    padding: 15px 20px; /* More vertical breathing room */
     background: #FDC933;
-    border-radius: 6px;
+    border-radius: 8px;
     border: none;
-    font-weight: 500;
+    color: #000;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700; /* Bolder text for visibility */
+    text-transform: uppercase;
     cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.btn-generate-yellow:hover {
+    background: #e5b62e;
+    transform: translateY(-2px); /* Subtle lift effect */
 }
 
 .btn-copy-green {
     width: 143px;
     padding: 10px;
+    font-size: 16px;
     background: #37D36D;
     border-radius: 10px;
     color: white;

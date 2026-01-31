@@ -17,7 +17,7 @@
 </section>
 
 
-<div class="portal-outer-wrapper">
+<div class="portal-outer-wrapper reveal">
     <div class="portal-inner-card">
         <img src="{{ asset('images/agent-1.jpg') }}" class="agent-hero-image" alt="Agent Portal">
 
