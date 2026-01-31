@@ -3825,3 +3825,179 @@ body {
     background: #FDC933;
     color: #000;
 }
+
+/* Main Wrapper */
+.portal-outer-wrapper {
+    width: 100%; /* Ensure it spans the full browser width */
+    display: flex; /* Use flex instead of inline-flex */
+    justify-content: center; /* Centers the 1152px card within the 1440px area */
+    padding: 50px 0;
+}
+
+.portal-inner-card {
+    width: 1152px;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Image Side */
+.agent-hero-image {
+    width: 564px;
+    height: 610px;
+    background: linear-gradient(0deg, rgba(134, 132, 132, 0.2) 0%, rgba(134, 132, 132, 0.2) 100%);
+    border-top-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    object-fit: cover;
+}
+
+/* Form Side Container */
+.form-content-side {
+    width: 563px;
+    align-self: stretch;
+    padding: 15px;
+    background: white;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+/* Header Section (148px Space-Between) */
+.agent-header-box {
+    align-self: stretch;
+    height: 148px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.program-badge {
+    padding: 0 10px;
+    background: rgba(225, 6, 27, 0.15);
+    border-top-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    color: #E1061B;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    line-height: 40px;
+}
+
+/* Form Body Section (353px Space-Between) */
+.agent-form-body {
+    align-self: stretch;
+    height: 353px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.input-container {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.styled-input-group {
+    align-self: stretch;
+    padding: 10px;
+    background: #F5F5F5;
+    border-radius: 10px;
+    border: 1px solid #464646;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.styled-select, .styled-input {
+    border: none;
+    background: transparent;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    outline: none;
+}
+
+.btn-generate-yellow {
+    width: 189px;
+    padding: 10px;
+    background: #FDC933;
+    border-radius: 6px;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.btn-copy-green {
+    width: 143px;
+    padding: 10px;
+    background: #37D36D;
+    border-radius: 10px;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+@media (max-width: 992px) {
+    /* Full width for the outer wrapper on mobile */
+    .portal-outer-wrapper {
+        width: 100%;
+        padding: 20px 15px; /* Less padding on mobile */
+    }
+
+    /* Stack elements vertically */
+    .portal-inner-card {
+        width: 100%;
+        flex-direction: column;
+        gap: 0; /* Let padding handle spacing */
+    }
+
+    /* Make image span full width and adjust height */
+    .agent-hero-image {
+        width: 100%;
+        height: 300px; /* Reduced height for better mobile UX */
+        border-bottom-right-radius: 0; /* Clean break between image and form */
+        border-top-right-radius: 40px; 
+    }
+
+    /* Expand form to full width */
+    .form-content-side {
+        width: 100%;
+        max-width: 100%;
+        padding: 30px 20px;
+    }
+
+    /* REMOVE FIXED HEIGHTS - This is the most important fix */
+    .agent-header-box, 
+    .agent-form-body {
+        height: auto !important; 
+        gap: 20px;
+    }
+
+    /* Ensure title text doesn't overflow */
+    .main-title-text,
+    div[style*="font-size: 38px"] {
+        font-size: 28px !important; /* Smaller text for mobile phones */
+        line-height: 1.2;
+    }
+
+    .subtext-description,
+    div[style*="width: 485px"] {
+        width: 100% !important;
+    }
+
+    /* Stack the referral link and copy button */
+    div[style*="justify-content: space-between"] {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    #finalLink, .btn-copy-green {
+        width: 100% !important;
+    }
+}

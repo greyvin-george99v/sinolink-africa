@@ -16,6 +16,9 @@ Route::get('/catalogue', [VehicleController::class, 'catalogue'])->name('catalog
 
 Route::get('/vehicles/{slug}', [VehicleController::class, 'show'])->name('vehicle.show');
 
+
+Route::get('/agent-portal', [VehicleController::class, 'showGenerator'])->name('agent.generator');
+
 Route::get('/services', function () {
     return view('services');
 })->name('services');

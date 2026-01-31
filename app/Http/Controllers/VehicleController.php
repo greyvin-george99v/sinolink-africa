@@ -740,10 +740,20 @@ class VehicleController extends Controller
             'image' => 'Sinolink-61.jpeg',
             'desc' => '5-seater rear-wheel drive sedan, equipped with driver/passenger and side airbags, ISOFIX anchors, ABS and electronic brake-force distribution (EBD).',
         ],
-        
+            
         
         ]);
+
+        return collect($data)->map(function ($vehicle) {
+            // This checks if 'slug' is missing and creates one automatically from the 'name'
+            if (!isset($vehicle['slug'])) {
+                $vehicle['slug'] = \Illuminate\Support\Str::slug($vehicle['name']);
+            }
+            return $vehicle;
+        });
     }
+
+    
 
     // 2. This handles the Catalogue (20 per page)
    public function catalogue(Request $request)
@@ -821,8 +831,6 @@ class VehicleController extends Controller
         }
 
         $vehicles = $this->getVehicles();
-        
-        // 2. Finding the car using the slug
         $vehicle = $vehicles->firstWhere('slug', $slug);
 
         if (!$vehicle) {
@@ -830,7 +838,13 @@ class VehicleController extends Controller
         }
 
         return view('vehicle-details', compact('vehicle'));
-}
+    }
+
+    public function showGenerator()
+    {
+    $vehicles = $this->getVehicles(); 
+    return view('agent-generator', compact('vehicles'));
+    }
 
 }
 
