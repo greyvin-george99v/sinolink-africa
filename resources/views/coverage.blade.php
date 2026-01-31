@@ -6,11 +6,11 @@
 <section class="coverage-breadcrumb-hero">
     <div class="hero-overlay">
         <div class="hero-content">
-            <h1>Coverage</h1>
+            <h1>{{ __('Coverage') }}</h1>
             <div class="breadcrumb">
-                <a href="{{ url('/') }}">Home</a>
+                <a href="{{ url('/') }}">{{ __('Home') }}</a>
                 <i class="fa-solid fa-chevron-right"></i>
-                <span>Coverage</span>
+                <span>{{ __('Coverage') }}</span>
             </div>
         </div>
     </div>
@@ -19,10 +19,10 @@
 <section class="coverage-page-section reveal">
     <div class="container">
         <div class="coverage-header">
-            <div class="badge-red-soft">AFRICA COVERAGE</div>
-            <h2 class="figma-title">Pan-African Logistics Network</h2>
+            <div class="badge-red-soft">{{ __('AFRICA COVERAGE') }}</div>
+            <h2 class="figma-title">{{ __('Pan-African Logistics Network') }}</h2>
             <p class="coverage-description">
-                Sinolink operates through regional offices and trusted logistics partners to deliver vehicles to multiple African cities efficiently and reliably. Our established network ensures your vehicles arrive safely, with full documentation and customs clearance handled at every step.
+                {{ __('Sinolink operates through regional offices and trusted logistics partners to deliver vehicles to multiple African cities efficiently and reliably. Our established network ensures your vehicles arrive safely, with full documentation and customs clearance handled at every step.') }}
             </p>
         </div>
 
@@ -42,10 +42,10 @@
         
         <div class="coverage-header">
             <div class="coverage-tag-box">
-                <span class="coverage-tag">Coverage</span>
+                <span class="coverage-tag">{{ __('Coverage') }}</span>
             </div>
-            <h2 class="coverage-title">Where We Deliver</h2>
-            <p class="coverage-subtitle">Pan-African presence with offices and delivery networks across East and Central Africa</p>
+            <h2 class="coverage-title">{{ __('Where We Deliver') }}</h2>
+            <p class="coverage-subtitle">{{ __('Pan-African presence with offices and delivery networks across East and Central Africa') }}</p>
         </div>
 
         <div class="coverage-grid">

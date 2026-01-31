@@ -6,11 +6,11 @@
 <section class="media-breadcrumb-hero">
     <div class="hero-overlay">
         <div class="hero-content">
-            <h1>Gallery</h1>
+            <h1>{{ __('Gallery') }}</h1>
             <div class="breadcrumb">
-                <a href="{{ url('/') }}">Home</a>
+                <a href="{{ url('/') }}">{{ __('Home') }}</a>
                 <i class="fa-solid fa-chevron-right"></i>
-                <span>Gallery</span>
+                <span>{{ __('Gallery') }}</span>
             </div>
         </div>
     </div>
@@ -19,9 +19,9 @@
 <section class="gallery-section reveal">
     <div class="container">
         <div class="gallery-header">
-            <div class="badge-red-soft">MEDIA</div>
-            <h2 class="figma-title">Our Work in Action</h2>
-            <p class="figma-subtitle">From sourcing to delivery, see how we connect China to Africa.</p>
+            <div class="badge-red-soft">{{ __('MEDIA') }}</div>
+            <h2 class="figma-title">{{ __('Our Work in Action') }}</h2>
+            <p class="figma-subtitle">{{ __('From sourcing to delivery, see how we connect China to Africa.') }}</p>
         </div>
 
         <div class="gallery-grid">
@@ -75,10 +75,10 @@
         
         <div class="coverage-header">
             <div class="coverage-tag-box">
-                <span class="coverage-tag">Coverage</span>
+                <span class="coverage-tag">{{ __('Coverage') }}</span>
             </div>
-            <h2 class="coverage-title">Where We Deliver</h2>
-            <p class="coverage-subtitle">Pan-African presence with offices and delivery networks across East and Central Africa</p>
+            <h2 class="coverage-title">{{ __('Where We Deliver') }}</h2>
+            <p class="coverage-subtitle">{{ __('Pan-African presence with offices and delivery networks across East and Central Africa') }}</p>
         </div>
 
         <div class="coverage-grid">
@@ -127,9 +127,9 @@
         </div>
 
         <div class="coverage-cta-banner">
-            <h2 class="cta-title">Don't see your City?</h2>
-            <p class="cta-text">Send us your location and we'll provide custom pricing for delivery to your area.</p>
-            <a href="{{ url('/contact') }}"  class="btn-coverage">Send Your City for Price</a>
+            <h2 class="cta-title">{{ __('Don\'t see your City?') }}</h2>
+            <p class="cta-text">{{ __('Send us your location and we\'ll provide custom pricing for delivery to your area.') }}</p>
+            <a href="{{ url('/contact') }}"  class="btn-coverage">{{ __('Send Your City for Price') }}</a>
         </div>
 
     </div>
