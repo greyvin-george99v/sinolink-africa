@@ -6,11 +6,11 @@
 <section class="about-breadcrumb-hero">
     <div class="hero-overlay">
         <div class="hero-content">
-            <h1>About Us</h1>
+            <h1>{{ __('About Us') }}</h1>
             <div class="breadcrumb">
-                <a href="{{ url('/') }}">Home</a>
+                <a href="{{ url('/') }}">{{ __('Home') }}</a>
                 <i class="fa-solid fa-chevron-right"></i>
-                <span>About Us</span>
+                <span>{{ __('About Us') }}</span>
             </div>
         </div>
     </div>
@@ -19,10 +19,10 @@
 <section class="who-we-are reveal">
     <div class="container"> <div class="about-flex">
             <div class="about-text">
-                <span class="who-badge">Who We Are</span>
-                <h2>A Pan-African Company Simplifying Vehicle Sourcing</h2>
-                <p>Sinolink is a pan-African vehicle sourcing and logistics company focused on simplifying the entire process of getting ATVs, motorbikes, and utility vehicles from China to Africa.</p>
-                <p>We manage everything from supplier selection and quality inspection to shipping, customs clearance, and final delivery. Our goal is to make cross-border vehicle acquisition seamless, transparent, and stress-free for individuals, dealers, and businesses alike.</p>
+                <span class="who-badge">{{ __('Who We Are') }}</span>
+                <h2>{{ __('A Pan-African Company Simplifying Vehicle Sourcing') }}</h2>
+                <p>{{ __('Sinolink is a pan-African vehicle sourcing and logistics company focused on simplifying the entire process of getting ATVs, motorbikes, and utility vehicles from China to Africa.') }}</p>
+                <p>{{ __('We manage everything from supplier selection and quality inspection to shipping, customs clearance, and final delivery. Our goal is to make cross-border vehicle acquisition seamless, transparent, and stress-free for individuals, dealers, and businesses alike.') }}</p>
             </div>
 
             <div class="about-image-wrapper">
@@ -37,47 +37,62 @@
 <section class="what-we-do-black reveal">
     <div class="container">
         <div class="header-content">
-            <span class="badge-yellow">What We Do</span>
-            <h2 class="title-white">End-to-End Vehicle Sourcing & Logistics</h2>
-            <p class="subtitle-gray">From manufacturer to your doorstep, we handle every step of the journey.</p>
+            <span class="badge-yellow">{{ __('What We Do') }}</span>
+            <h2 class="title-white">{{ __('End-to-End Vehicle Sourcing & Logistics') }}</h2>
+            <p class="subtitle-gray">{{ __('From manufacturer to your doorstep, we handle every step of the journey.') }}</p>
         </div>
 
-        <div class="services-grid reveal">
-            <div class="service-card">
-                <div class="icon-square"><i class="fa-solid fa-car"></i></div>
-                <h3>ATV & Vehicle Sourcing</h3>
-                <p>Direct procurement from verified Chinese manufacturers with competitive pricing and quality assurance.</p>
+        <div class="services-grid">
+            
+            <div class="service-card reveal">
+                <div class="service-card__icon-box">
+                    <i class="fa-solid fa-car-side service-icon"></i>
+                </div>
+                <h3 class="service-card__title">{{ __('ATV & Vehicle Sourcing') }}</h3>
+                <p class="service-card__text">{{ __('Direct procurement from verified Chinese manufacturers with competitive pricing and quality assurance.') }}</p>
             </div>
 
-        <div class="services-grid reveal">
-                <div class="icon-square"><i class="fa-solid fa-clipboard-check"></i></div>
-                <h3>Quality Inspection</h3>
-                <p>Rigorous pre-shipment inspections to ensure every vehicle meets your specifications and standards.</p>
+            <div class="service-card reveal">
+                <div class="service-card__icon-box">
+                    <i class="fa-solid fa-clipboard-check service-icon"></i>
+                </div>
+                <h3 class="service-card__title">{{ __('Quality Inspection') }}</h3>
+                <p class="service-card__text">{{ __('Rigorous pre-shipment inspections to ensure every vehicle meets your specifications and standards.') }}</p>
             </div>
 
-        <div class="services-grid reveal">
-                <div class="icon-square"><i class="fa-solid fa-ship"></i></div>
-                <h3>Shipping & Logistics</h3>
-                <p>Seamless sea and air freight solutions with real-time tracking from China to African ports.</p>
+            <div class="service-card reveal">
+                <div class="service-card__icon-box">
+                    <i class="fa-solid fa-ship service-icon"></i>
+                </div>
+                <h3 class="service-card__title">{{ __('Shipping & Logistics') }}</h3>
+                <p class="service-card__text">{{ __('Seamless sea and air freight solutions with real-time tracking from China to African ports.') }}</p>
             </div>
 
-        <div class="services-grid reveal">
-                <div class="icon-square"><i class="fa-solid fa-boxes-stacked"></i></div>
-                <h3>Bulk & Fleet Orders</h3>
-                <p>Custom sourcing solutions for businesses, government agencies, NGOs, and resellers requiring bulk or fleet vehicle orders.</p>
+            <div class="service-card reveal">
+                <div class="service-card__icon-box">
+                    <i class="fa-solid fa-truck-ramp-box service-icon"></i>
+                </div>
+                <h3 class="service-card__title">{{ __('Bulk & Fleet Orders') }}</h3>
+                <p class="service-card__text">{{ __('Custom sourcing solutions for businesses, government agencies, NGOs, and resellers requiring bulk orders.') }}</p>
             </div>
 
-        <div class="services-grid reveal">
-                <div class="icon-square"><i class="fa-solid fa-file-contract"></i></div>
-                <h3>Customs Clearance</h3>
-                <p>Handling customs documentation, duties, and regulatory compliance to ensure smooth clearance at destination ports.</p>
+            <div class="service-card reveal">
+                <div class="service-card__icon-box">
+                    <i class="fa-solid fa-passport service-icon"></i>
+                </div>
+                <h3 class="service-card__title">{{ __('Customs Clearance') }}</h3>
+                <p class="service-card__text">{{ __('Handling customs documentation, duties, and regulatory compliance at destination ports.') }}</p>
             </div>
 
-        <div class="services-grid reveal">
-                <div class="icon-square"><i class="fa-solid fa-comments-dollar"></i></div>
-                <h3>Pricing Consultation & Quotes</h3>
-                <p>Professional guidance on vehicle valuation and total landed cost estimates before you commit to a purchase.</p>
+            <div class="service-card reveal">
+                <div class="service-card__icon-box">
+                    <i class="fa-solid fa-comments-dollar service-icon"></i>
+                </div>
+                <h3 class="service-card__title">{{ __('Pricing Consultation') }}</h3>
+                <p class="service-card__text">{{ __('Expert advice on market trends and total landed costs to ensure you get the best value for your investment.') }}</p>
             </div>
+
+        </div>
             
         </div>
     </div>
@@ -88,10 +103,10 @@
         
         <div class="coverage-header">
             <div class="coverage-tag-box">
-                <span class="coverage-tag">Coverage</span>
+                <span class="coverage-tag">{{ __('Coverage') }}</span>
             </div>
-            <h2 class="coverage-title">Where We Deliver</h2>
-            <p class="coverage-subtitle">Pan-African presence with offices and delivery networks across East and Central Africa</p>
+            <h2 class="coverage-title">{{ __('Where We Deliver') }}</h2>
+            <p class="coverage-subtitle">{{ __('Pan-African presence with offices and delivery networks across East and Central Africa') }}</p>
         </div>
 
         <div class="coverage-grid">
@@ -140,9 +155,9 @@
         </div>
 
         <div class="coverage-cta-banner">
-            <h2 class="cta-title">Don't see your City?</h2>
-            <p class="cta-text">Send us your location and we'll provide custom pricing for delivery to your area.</p>
-            <a href="{{ url('/contact') }}" class="btn-coverage">Send Your City for Price</a>
+            <h2 class="cta-title">{{ __('Don\'t see your City?') }}</h2>
+            <p class="cta-text">{{ __('Send us your location and we\'ll provide custom pricing for delivery to your area.') }}</p>
+            <a href="{{ url('/contact') }}" class="btn-coverage">{{ __('Send Your City for Price') }}</a>
         </div>
 
     </div>

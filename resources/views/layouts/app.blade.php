@@ -52,9 +52,15 @@
         </div>
 
         <div class="header__socials">
-            <a href="https://web.facebook.com/profile.php?id=61584158585251"><i class="fa-brands fa-facebook"></i></a>
-            <a href="https://www.tiktok.com/@sinolink3"><i class="fa-brands fa-tiktok"></i></a>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://web.facebook.com/profile.php?id=61584158585251" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a href="https://www.tiktok.com/@sinolink3" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-tiktok"></i>
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
         </div>
 
     </div>
@@ -162,9 +168,15 @@
             <div class="footer-socials">
                 <h4 class="socials-title">{{ __('FOLLOW US') }}</h4>
                 <div class="social-icons">
-                    <a href="https://web.facebook.com/profile.php?id=61584158585251"><i class="fa-brands fa-facebook-f"></i></a> 
-                    <a href="https://www.tiktok.com/@sinolink3"><i class="fa-brands fa-tiktok"></i></a>
-                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://web.facebook.com/profile.php?id=61584158585251" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a> 
+                    <a href="https://www.tiktok.com/@sinolink3" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
                 </div>
             </div>
         </div>
