@@ -16,7 +16,7 @@ class VehicleController extends Controller
             'price' => 4890,
             'year' => '2007',
             'km' => '130,000 km',
-            'fuel' => 'Essence',
+            'fuel' => 'Gasoline',
             'color' => 'Black',
             'trans' => 'Automatic',
             'image' => 'Sinolink-1.jpg',

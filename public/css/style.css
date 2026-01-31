@@ -3217,20 +3217,17 @@ html, body {
 
 .car-card {
     background: #ffffff;
-    min-width: 0 !important;
     border-radius: 15px;
-    overflow: hidden;
+    overflow: hidden; /* Critical: keeps the zoomed image inside the card */
     display: flex;
     flex-direction: column;
-    transition: all 0.3s ease;
+    transition: box-shadow 0.3s ease; /* Transition shadow instead of 'all' */
     border: 1px solid #D1D1D1;
-    min-width: 0; /* Prevents the first card from pushing wider than the others */
     width: 100%;
-    height:200;
 }
 
 .car-card:hover {
-    transform: translateY(-8px);
+    /* Removed translateY to keep the card stationary */
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
     border-color: #f0f0f0;
 }
@@ -3244,9 +3241,13 @@ html, body {
 
 .car-img {
     width: 100%;
-    height: 227px;
+    height: 230px; /* Ensure this matches your desired height */
     object-fit: cover;
-    display: block;
+    transition: transform 0.5s ease; /* Smooth zoom transition */
+}
+
+.car-card:hover .car-img {
+    transform: scale(1.1); /* Zooms the image in by 10% */
 }
 
 .price-pill {
