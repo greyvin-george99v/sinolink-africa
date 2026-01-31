@@ -2180,7 +2180,7 @@ html, body {
 .services-breadcrumb-hero {
     width: 100%;
     min-height: 260px;
-    background-image: url('../images/services.jpg'); 
+    background-image: url('../images/services-hero.jpg'); 
     background-size: cover;
     background-position: center;
     position: relative;
