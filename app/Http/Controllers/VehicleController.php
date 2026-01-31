@@ -843,7 +843,7 @@ class VehicleController extends Controller
     public function showGenerator()
     {
     $vehicles = $this->getVehicles(); 
-    return view('agent-generator', compact('vehicles'));
+    return view('affiliate-program', compact('vehicles'));
     }
 
 }

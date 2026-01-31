@@ -6,11 +6,11 @@
 <section class="coverage-breadcrumb-hero">
     <div class="hero-overlay">
         <div class="hero-content">
-            <h1>Agent Referral Portal</h1>
+            <h1>Affiliate Program</h1>
             <div class="breadcrumb">
                 <a href="{{ url('/') }}">Home</a>
                 <i class="fa-solid fa-chevron-right"></i>
-                <span>Agent Referral Portal</span>
+                <span>Affiliate Program</span>
             </div>
         </div>
     </div>
@@ -23,7 +23,7 @@
 
         <div class="form-content-side">
             <div class="agent-header-box">
-                <div class="program-badge">AGENT PROGRAM</div>
+                <div class="program-badge">AFFILIATE PROGRAM</div>
                 <div style="font-size: 38px; font-family: 'Helvetica Black'; line-height: 40px;">Generate Referral Links</div>
                 <div style="width: 485px; font-size: 16px; font-family: 'Poppins';">Empowering you to source and sell high-quality Chinese vehicles with ease.</div>
             </div>
@@ -31,7 +31,7 @@
             <div class="agent-form-body">
                 <div class="input-container">
                     <div>
-                        <label style="font-weight: 600; margin-bottom: 10px; display: block;">Enter Your Agent Name (No spaces)</label>
+                        <label style="font-weight: 600; margin-bottom: 10px; display: block;">Enter Your Affiliate Name (No spaces)</label>
                         <div class="styled-input-group">
                             <input type="text" id="agentName" class="styled-input" placeholder="e.g JoeDoe">
                         </div>
@@ -55,7 +55,7 @@
                 </div>
 
                 <div style="align-self: stretch;">
-                    <label style="font-weight: 600; margin-bottom: 10px; display: block;">Your Unique Referral Link:</label>
+                    <label style="font-weight: 600; margin-bottom: 10px; display: block;">Your Affiliate Referral Link</label>
                     <div style="display: flex; justify-content: space-between;">
                         <input type="text" id="finalLink" class="styled-input" style="width: 380px; padding: 10px; background: #F5F5F5; border-radius: 10px; border: 1px solid #464646;" readonly>
                         <button onclick="copyLink()" id="copyBtn" class="btn-copy-green">Copy Link</button>
