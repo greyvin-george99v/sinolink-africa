@@ -33,7 +33,7 @@
                 <div class="info-item">
                     <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
                     <div class="info-text">
-                        <span class="info-label">SUPPORT INQUIRIES</span>
+                        <span class="info-label">{{ __('SUPPORT INQUIRIES') }}</span>
                         <span class="info-value">info@sinolink.africa</span>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
                 <div class="info-item">
                     <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
                     <div class="info-text">
-                       <span class="info-label">CALL US</span>
+                       <span class="info-label">{{ __('CALL US') }}</span>
                         <div class="mobile-numbers">
                             <a href="tel:+254713688640" class="info-value">+254 713 688 640</a>
                             
@@ -73,24 +73,23 @@
         </div>
 
         <ul class="nav-links" id="nav-list">
-            <li><a href="{{ url('/') }}">HOME</a></li>
-            <li><a href="{{ url('/about') }}" class="{{ Request::is('about') ? 'active' : '' }}">ABOUT US</a></li>
-            <li><a href="{{ url('/catalogue') }}" class="{{ Request::is('catalogue') ? 'active' : '' }}">CATALOGUE</a></li>
-            <li><a href="{{ url('/services') }}" class="{{ Request::is('services') ? 'active' : '' }}">SERVICES</a></li>
-            <li><a href="{{ url('/media') }}" class="{{ Request::is('media') ? 'active' : '' }}">MEDIA</a></li>
-            <li><a href="{{ url('/coverage') }}" class="{{ Request::is('coverage') ? 'active' : '' }}">COVERAGE</a></li>
-            <li><a href="{{ url('/contact') }}" class="{{ Request::is('contact') ? 'active' : '' }}">CONTACTS</a></li>
+            <li><a href="{{ url('/') }}">{{ __('HOME') }}</a></li>
+            <li><a href="{{ url('/about') }}" class="{{ Request::is('about') ? 'active' : '' }}">{{ __('ABOUT US') }}</a></li>
+            <li><a href="{{ url('/catalogue') }}" class="{{ Request::is('catalogue') ? 'active' : '' }}">{{ __('CATALOGUE') }}</a></li>
+            <li><a href="{{ url('/services') }}" class="{{ Request::is('services') ? 'active' : '' }}">{{ __('SERVICES') }}</a></li>
+            <li><a href="{{ url('/media') }}" class="{{ Request::is('media') ? 'active' : '' }}">{{ __('MEDIA') }}</a></li>
+            <li><a href="{{ url('/coverage') }}" class="{{ Request::is('coverage') ? 'active' : '' }}">{{ __('COVERAGE') }}</a></li>
+            <li><a href="{{ url('/contact') }}" class="{{ Request::is('contact') ? 'active' : '' }}">{{ __('CONTACTS') }}</a></li>
             
-            <li><a href="{{ url('/affiliate-program') }}" class="{{ Request::is('affiliate-program') ? 'active' : '' }}">AFFILIATE PROGRAM</a></li>
+            <li><a href="{{ url('/affiliate-program') }}" class="{{ Request::is('affiliate-program') ? 'active' : '' }}">{{ __('AFFILIATE PROGRAM') }}</a></li>
             
             
             <li class="mobile-quote-container">
-                <a href="{{ url('/contact') }}" class="btn-quote-mobile">REQUEST A QUOTE</a>
+                <a href="{{ url('/contact') }}" class="btn-quote-mobile">{{ __('REQUEST A QUOTE') }}</a>
             </li>
         </ul>
 
-        <a href="{{ url('/contact') }}" class="btn-quote">REQUEST A QUOTE</a>
-
+        <a href="{{ url('/contact') }}" class="btn-quote">{{ __('REQUEST A QUOTE') }}</a>
         <div class="menu-toggle" id="mobile-menu">
             <i class="fa-solid fa-bars"></i>
         </div>
@@ -109,43 +108,42 @@
             <a href="{{ url('/') }}">
             <img class="footer-logo" src="images/Sinolink-Logo-White.png" alt="Sinolink Logo">
 </a>
-            <p class="footer-desc">Your trusted partner for Pan-African vehicle and ATV sourcing from China.</p>
+            <p class="footer-desc">{{ __('Your trusted partner for Pan-African vehicle and ATV sourcing from China.') }}</p>
         <div class="footer-contact-info">
         <div class="contact-item">
             <i class="fa-solid fa-clock footer-icon"></i>
-            <span>
-                Mon - Fri: 8:00 to 17:00<br>
-                <small class="closed-text">(Saturday & Sunday Closed)</small>
+            <span> {{ __('Mon - Fri: 8:00 to 17:00') }}<br>
+                <small class="closed-text">{{ __('(Saturday & Sunday Closed)') }}</small>
             </span>
         </div>
     </div>
         </div>
 
         <div class="footer-col">
-            <h3 class="footer-title">Quick Links</h3>
+            <h3 class="footer-title">{{ __('Quick Links') }}</h3>
             <ul class="footer-links">
-                <li><a href="{{ url('/') }}">Home</a></li>
-                <li><a href="{{ url('/about') }}" class="{{ Request::is('about') ? 'active' : '' }}">About Us</a></li>
-                <li><a href="{{ url('/services') }}" class="{{ Request::is('services') ? 'active' : '' }}">Services</a></li>
-                <li><a href="{{ url('/media') }}" class="{{ Request::is('media') ? 'active' : '' }}">Media</a></li>
-                <li><a href="{{ url('/coverage') }}" class="{{ Request::is('coverage') ? 'active' : '' }}">Coverage</a></li>
-                <li><a href="{{ url('/contact') }}" class="{{ Request::is('contact') ? 'active' : '' }}">Contacts</a></li>
+                <li><a href="{{ url('/') }}">{{ __('HOME') }}</a></li>
+                <li><a href="{{ url('/about') }}" class="{{ Request::is('about') ? 'active' : '' }}">{{ __('ABOUT US') }}</a></li>
+                <li><a href="{{ url('/services') }}" class="{{ Request::is('services') ? 'active' : '' }}">{{ __('SERVICES') }}</a></li>
+                <li><a href="{{ url('/media') }}" class="{{ Request::is('media') ? 'active' : '' }}">{{ __('MEDIA') }}</a></li>
+                <li><a href="{{ url('/coverage') }}" class="{{ Request::is('coverage') ? 'active' : '' }}">{{ __('COVERAGE') }}</a></li>
+                <li><a href="{{ url('/contact') }}" class="{{ Request::is('contact') ? 'active' : '' }}">{{ __('CONTACTS') }}</a></li>
             </ul>
         </div>
 
         <div class="footer-col">
-            <h3 class="footer-title">Countries Served</h3>
+            <h3 class="footer-title">{{ __('Countries Served') }}</h3>
             <ul class="footer-countries">
-                <li><i class="fa-solid fa-location-dot footer-icon"></i> Kenya</li>
-                <li><i class="fa-solid fa-location-dot footer-icon"></i> DRC</li>
-                <li><i class="fa-solid fa-location-dot footer-icon"></i> Tanzania</li>
-                <li><i class="fa-solid fa-location-dot footer-icon"></i> Angola</li>
-                <li><i class="fa-solid fa-location-dot footer-icon"></i> Zambia</li>
+                <li><i class="fa-solid fa-location-dot footer-icon"></i> {{ __('Kenya') }}</li>
+                <li><i class="fa-solid fa-location-dot footer-icon"></i> {{ __('DRC') }}</li>
+                <li><i class="fa-solid fa-location-dot footer-icon"></i> {{ __('Tanzania') }}</li>
+                <li><i class="fa-solid fa-location-dot footer-icon"></i> {{ __('Angola') }}</li>
+                <li><i class="fa-solid fa-location-dot footer-icon"></i> {{ __('Zambia') }}</li>
             </ul>
         </div>
 
         <div class="footer-col">
-            <h3 class="footer-title">Contact</h3>
+            <h3 class="footer-title">{{ __('Contact') }}</h3>
             <div class="footer-contact-info">
                 <div class="contact-item">
                     <i class="fa-solid fa-phone footer-icon"></i>
@@ -162,7 +160,7 @@
             </div>
 
             <div class="footer-socials">
-                <h4 class="socials-title">FOLLOW US</h4>
+                <h4 class="socials-title">{{ __('FOLLOW US') }}</h4>
                 <div class="social-icons">
                     <a href="https://web.facebook.com/profile.php?id=61584158585251"><i class="fa-brands fa-facebook-f"></i></a> 
                     <a href="https://www.tiktok.com/@sinolink3"><i class="fa-brands fa-tiktok"></i></a>
@@ -174,7 +172,7 @@
     </div>
 
     <div class="footer-bottom">
-        <p>© 2026 SINOLINK. All rights reserved. &nbsp; <a href="{{ route('privacy') }}">Privacy Policy</a> &nbsp; <a href="{{ route('terms') }}">Terms of Service</a>
+        <p>{{ __('© 2026 SINOLINK. All rights reserved.') }} &nbsp; <a href="{{ route('privacy') }}">{{ __('Privacy Policy') }}</a> &nbsp; <a href="{{ route('terms') }}">{{ __('Terms of Service') }}</a>
     </div>
 </footer>
 
@@ -184,14 +182,14 @@
 
 <div id="cookie-banner" class="cookie-container">
     <div class="cookie-content">
-        <p>This website uses cookies to ensure you get the best experience on our website. 
-           By continuing, you agree to our <a href="{{ route('privacy') }}">Privacy Policy</a>.</p>
-        <button id="accept-cookies" class="btn-accept">Accept & Close</button>
+        <p>{{ __('This website uses cookies to ensure you get the best experience on our website. 
+           By continuing, you agree to our') }} <a href="{{ route('privacy') }}">{{ __('Privacy Policy') }}</a>.</p>
+        <button id="accept-cookies" class="btn-accept">{{ __('Accept & Close') }}</button>
     </div>
 </div>
 
 <a href="https://wa.me/254713688640" class="whatsapp-float" target="_blank">
-        <span>Chat with us</span>
+        <span>{{ __('Chat with us') }}</span>
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
