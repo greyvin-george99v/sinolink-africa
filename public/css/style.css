@@ -10,14 +10,22 @@ html {
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: #ffffff;
+    background: #fcfcfc;
     color: #333;
     line-height: 1.6;
+    /* Remove overflow-x from here */
 }
 
+/* Remove overflow-x: hidden from html/body */
 html, body {
     max-width: 100%;
-    overflow-x: hidden; /* This kills the horizontal scroll bar immediately */
+    /* overflow-x: hidden; <-- Remove or comment this out */
+}
+
+/* Apply overflow-x: hidden to a wrapper instead */
+.main-wrapper { 
+    overflow-x: hidden;
+    width: 100%;
 }
 
 .page {
@@ -137,7 +145,7 @@ html, body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
+    max-width: 1152px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -3389,7 +3397,7 @@ html, body {
 .vehicle-details-page {
     max-width: 1152px;
     margin: 0 auto;
-    padding: 60px 20px;
+    padding: 60px 0px;
     width: 100%;
     font-family: 'Poppins', sans-serif;
 }
@@ -3540,7 +3548,7 @@ html, body {
     justify-content: center;
     align-items: center;
     gap: 10px;
-    font-size: 20px;
+    font-size: 18px;
     transition: all 0.3s ease;
     margin-bottom: 20px; /* Space between the two buttons */
 }
@@ -3548,6 +3556,34 @@ html, body {
 .btn-whatsapp:hover, .btn-outline-yellow:hover {
     transform: translateY(-2px);
     filter: brightness(0.95);
+}
+
+.btn-outline-yellow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; 
+    font-size: 18px;
+    padding: 12px 24px;
+    border: 2px solid #FFD700; 
+    color: #FFD700;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-yellow i {
+    transition: transform 0.3s ease;
+}
+
+/* Subtly move the arrow to the left on hover */
+.btn-outline-yellow:hover i {
+    transform: translateX(-5px);
+}
+
+.btn-outline-yellow:hover {
+    background-color: #FFD700;
+    color: #fff;
 }
 
 .contact-info {
@@ -3564,20 +3600,11 @@ html, body {
     font-size: 22px;
     font-weight: 500;
     color: #1E1E1E;
-    margin-top: 0; /* Reset any default top margins */
-    margin-bottom: 20px; /* Exact spacing to the WhatsApp button and Contact rows */
+    margin-top: 0; 
+    margin-bottom: 20px; 
 }
 
-.btn-outline-yellow {
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-    border: 1px solid #FEA71C;
-    color: #FEA71C;
-    border-radius: 10px;
-    text-decoration: none;
-    font-size: 20px;
-}
+
 
 .contact-row {
     display: flex;
@@ -3662,50 +3689,50 @@ html, body {
 }
 
 @media (max-width: 992px) {
-    /* 1. Reset the grid completely */
+    /* 1. Set the main container to a column stack */
     .details-grid {
         display: flex !important;
         flex-direction: column !important;
     }
 
-    /* 2. Ensure the image container is first */
+    /* 2. Break open the main-content container so its children 
+          (the image and description) can be reordered independently */
     .main-content {
-        display: block !important;
-        order: 1 !important;
-        width: 100% !important;
+        display: contents !important; 
     }
 
-    /* 3. Force the sidebar (Price/Title) to be second */
+    /* 3. Now order everything correctly within the details-grid scope */
+    .hero-image-wrapper {
+        order: 1 !important;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
     .sidebar {
         display: block !important;
-        order: 2 !important;
+        order: 2 !important; /* This moves the Price Card under the Image */
         width: 100% !important;
-        margin-top: 30px !important;
+        margin-bottom: 10px !important;
+        margin-top: 0 !important; /* Reset margin for cleaner flow */
+    }
+
+    .info-section {
+        order: 3 !important; /* This moves the Description under the Price */
+        width: 100% !important;
     }
 }
 
-/* --- 2. DESKTOP LAYOUT (Screens larger than 992px) --- */
+/* --- 2. DESKTOP LAYOUT (Unchanged logic) --- */
 @media (min-width: 992px) {
-    .main-details-flex {
-        flex-direction: row; /* Snap side-by-side on desktop */
-        align-items: flex-start;
+    .details-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 30px;
     }
-
-    .column-left {
-        flex: 2;          /* Takes up 66% space */
-    }
-
-    .column-right {
-        flex: 1;          /* Takes up 33% space */
-        max-width: 380px; /* Prevents sidebar from getting too wide */
-    }
-
     
-    
-    /* Ensure the main container doesn't have side-scrolling */
-    .main-details-flex {
-        padding: 0 15px;
-        overflow-x: hidden;
+    /* Ensure contents reset for desktop */
+    .main-content {
+        display: block !important;
     }
 }
 
