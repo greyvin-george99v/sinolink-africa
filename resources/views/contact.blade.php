@@ -6,11 +6,11 @@
 <section class="contact-breadcrumb-hero">
     <div class="hero-overlay">
         <div class="hero-content">
-            <h1>Contacts</h1>
+            <h1>{{ __('Contacts') }}</h1>
             <div class="breadcrumb">
-                <a href="{{ url('/') }}">Home</a>
+                <a href="{{ url('/') }}">{{ __('Home') }}</a>
                 <i class="fa-solid fa-chevron-right"></i>
-                <span>Contacts</span>
+                <span>{{ __('Contacts') }}</span>
             </div>
         </div>
     </div>
@@ -19,9 +19,9 @@
 <section class="contact-section reveal">
     <div class="container">
         <div class="contact-header">
-            <div class="badge-red-soft">GET IN TOUCH</div>
-            <h2 class="figma-title">Contact us Today</h2>
-            <p class="figma-subtitle">Your gateway to excellence in Chinese manufacturing.</p>
+            <div class="badge-red-soft">{{ __('GET IN TOUCH') }}</div>
+            <h2 class="figma-title">{{ __('Contact us Today') }}</h2>
+            <p class="figma-subtitle">{{ __('Your gateway to excellence in Chinese manufacturing.') }}</p>
         </div>
 
         <div class="contact-grid">
@@ -29,7 +29,7 @@
                 <div class="contact-icon-box">
                     <i class="fa-solid fa-location-dot"></i>
                 </div>
-                <h3>Location</h3>
+                <h3>{{ __('Location') }}</h3>
                 <p>NO 10 Maizhuan Road, Lishui Town<br>Nanhai District, Foshan China</p>
             </div>
 
@@ -37,10 +37,10 @@
                 <div class="contact-icon-box">
                     <i class="fa-solid fa-phone-volume"></i>
                 </div>
-                <h3>Quick Contact</h3>
+                <h3>{{ __('Quick Contact') }}</h3>
                 <p>
-                    Call on: <a href="tel:+254713688640" class="contact-link">(+254) 713 688640</a><br>
-                    Mail at: <a href="mailto:info@sinolink.com" class="contact-link">info@sinolink.Africa</a>
+                    {{ __('Call on:') }} <a href="tel:+254713688640" class="contact-link">(+254) 713 688640</a><br>
+                    {{ __('Mail at:') }} <a href="mailto:info@sinolink.com" class="contact-link">info@sinolink.Africa</a>
                 </p>
             </div>
 
@@ -48,8 +48,11 @@
                 <div class="contact-icon-box">
                     <i class="fa-solid fa-clock"></i>
                 </div>
-                <h3>Office Hours</h3>
-                <p>Mon - Fri: 8:00 to 17:00<br>(Saturday Sunday Closed)</p>
+                <h3>{{ __('Office Hours') }}</h3>
+                <p>
+                    {{ __('Mon - Fri: 8:00 to 17:00') }}<br>
+                    {{ __('(Saturday Sunday Closed)') }}
+                </p>
             </div>
         </div>
     </div>

@@ -918,8 +918,10 @@ html, body {
 }
 
 .figma-title {
-    text-align: center;
-    margin: 10px auto; /* Centers the block itself if it has a max-width */
+    /* Ensures no inherited centering from global styles */
+    text-align: left;
+    margin-left: 0;
+    width: 100%;
 }
 
 .figma-subtitle {
@@ -2508,13 +2510,30 @@ html, body {
     text-transform: uppercase;
 }
 
-.contact-header {
+/* Specifically target the top contact-section header */
+.contact-section .contact-header {
     width: 100%;
+    max-width: 100%; /* Ensure it's not restricted to a small width */
     display: flex;
     flex-direction: column;
-    align-items: center; 
-    text-align: center;
-    margin-bottom: 40px;
+    align-items: center; /* Centers the badge and children */
+    text-align: center;  /* Centers the text lines */
+    margin: 0 auto 50px auto;
+}
+
+/* Force the title and subtitle to occupy full width so text-align works */
+.contact-section .figma-title,
+.contact-section .figma-subtitle {
+    width: 100%;
+    text-align: center !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Keep the badge centered */
+.contact-section .badge-red-soft {
+    margin: 0 auto 10px auto;
+    display: table; /* Ensures it stays centered based on its own width */
 }
 
 .coverage-description {
@@ -2729,23 +2748,12 @@ html, body {
 }
 
 .contact-section {
-    padding: 100px 0;
+    padding: 80px 0;
     background-color: #fff;
 }
 
-.contact-section .container {
-    max-width: 1152px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
 
-.contact-header {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 60px;
-}
+
 
 
 .contact-grid {
@@ -2825,7 +2833,8 @@ html, body {
 }
 
 .inquiry-section {
-    padding: 100px 0;
+    padding-top: 40px !important; /* Reduced from 100px */
+    padding-bottom: 100px;
 }
 
 .inquiry-flex-wrapper {
@@ -2840,10 +2849,15 @@ html, body {
 .inquiry-content {
     flex: 1;
     max-width: 563px;
+    order: 2;
 }
 
 .contact-header-left {
     margin-bottom: 30px;
+    text-align: left !important; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
 }
 
 .form-subtext {
@@ -2914,6 +2928,7 @@ html, body {
 .inquiry-image {
     flex: 1;
     max-width: 564px;
+    order: 1;
 }
 
 .inquiry-image img {
