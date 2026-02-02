@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AffiliateManagementController;
 use App\Http\Controllers\AffiliateController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\InquiryController;
 use App\Http\Controllers\ProfileController;
@@ -57,10 +58,15 @@ Route::get('/clear-site', function() {
     return "Cache is cleared! Delete this route now.";
 });
 
-Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('/admin/affiliates', [AffiliateManagementController::class, 'index'])->name('admin.affiliates');
+Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
+    // This defines the missing route
+    Route::get('/dashboard', [AffiliateManagementController::class, 'index'])->name('dashboard');
+    
+    // Existing routes moved into the group for consistency
+    Route::get('/affiliates', [AffiliateManagementController::class, 'index'])->name('affiliates');
+    Route::get('/inquiries', [InquiryController::class, 'index'])->name('inquiries');
+    Route::get('/inquiries/export', [InquiryController::class, 'exportCsv'])->name('inquiries.export');
 });
-
 Route::get('/dashboard', [AffiliateController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
@@ -69,6 +75,17 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::post('/admin/affiliates/{id}/toggle-status', [AdminController::class, 'toggleStatus'])->name('admin.affiliates.toggle');
+
+// Temporary deployment helper
+Route::get('/deploy-helper', function () {
+    // Runs migrations to add that 'role' column on the server
+    Artisan::call('migrate --force'); 
+    // Link storage for images
+    Artisan::call('storage:link');
+    return "Migration and Storage Link complete!";
 });
 
 require __DIR__.'/auth.php';

@@ -4,6 +4,17 @@
 @section('header_title', 'Update Profile')
 
 @section('content')
+
+<div class="main-content">
+        <div class="top-bar">
+            <div>
+                <h2 style="margin: 0;">@yield('header_title')</h2>
+            </div>
+            <a href="{{ route('profile.edit') }}" class="user-profile">
+                
+                {{ Auth::user()->name }}<i class="fa-solid fa-circle-user"></i>
+            </a>
+        </div>
 <div class="profile-container">
     <div class="profile-grid">
         <div class="table-container profile-card">

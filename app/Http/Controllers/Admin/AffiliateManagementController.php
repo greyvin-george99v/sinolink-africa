@@ -16,4 +16,6 @@ class AffiliateManagementController extends Controller
 
         return view('admin.affiliates.index', compact('affiliates'));
     }
+
+    
 }

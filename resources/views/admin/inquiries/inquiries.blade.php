@@ -5,7 +5,13 @@
 
 @section('content')
     {{-- We removed sideview and main-content because the Layout file already has them --}}
-    
+    <div class="main-content">
+        <div class="top-bar">
+            <h2>Inquiries Management</h2>
+            <div class="user-profile">
+                Admin Panel <i class="fa-solid fa-circle-user"></i>
+            </div>
+        </div>
     <div class="table-container">
         <table>
             <thead>

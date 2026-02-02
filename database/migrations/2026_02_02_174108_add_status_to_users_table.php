@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-        // Defaults everyone to affiliate, you can manually change yourself to 'admin' in the DB
-        $table->string('role')->default('affiliate'); 
+        // Default to 'active' so everyone keeps working
+        $table->string('status')->default('active')->after('points'); 
     });
     }
 

@@ -3,7 +3,6 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
@@ -13,12 +12,15 @@ class InquiryReceived extends Mailable
 {
     use Queueable, SerializesModels;
 
+    // This public property makes the data available to your blade template automatically
+    public $emailData;
+
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct($emailData)
     {
-        //
+        $this->emailData = $emailData;
     }
 
     /**
@@ -27,7 +29,7 @@ class InquiryReceived extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Inquiry Received',
+            subject: 'New Vehicle Inquiry - Sinolink Africa',
         );
     }
 
@@ -37,15 +39,12 @@ class InquiryReceived extends Mailable
     public function content(): Content
     {
         return new Content(
-            markdown: 'mail.inquiry-received',
+            // Use 'view' if your template is regular HTML/Blade 
+            // or 'markdown' if you are using Laravel Mail components
+            view: 'mail.inquiry-received', 
         );
     }
 
-    /**
-     * Get the attachments for the message.
-     *
-     * @return array<int, \Illuminate\Mail\Mailables\Attachment>
-     */
     public function attachments(): array
     {
         return [];

@@ -4,8 +4,17 @@
 @section('header_title', 'My Dashboard')
 
 @section('content')
-    {{-- Notice: We removed <div class="main-content"> and <div class="top-bar"> --}}
-    {{-- The master layout handles those for us now --}}
+    
+    <div class="main-content">
+        <div class="top-bar">
+            <div>
+                <h2 style="margin: 0;">@yield('header_title')</h2>
+            </div>
+            <a href="{{ route('profile.edit') }}" class="user-profile">
+                
+                {{ Auth::user()->name }}<i class="fa-solid fa-circle-user"></i>
+            </a>
+        </div>
 
     <div class="stats-grid">
         <div class="stat-card">

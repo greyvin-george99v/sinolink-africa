@@ -53,7 +53,7 @@ body {
     margin: 20px;
     padding: 12px;
     background: var(--brand-yellow);
-    color: white;
+    color: rgb(0, 0, 0);
     border-radius: 8px;
     text-align: center;
 }
@@ -199,3 +199,61 @@ td { padding: 18px 15px; border-bottom: 1px solid #f9f9f9; }
 .danger-zone {
     border-top: 3px solid #ff4d4d;
 }
+
+/* Container for the buttons */
+.action-container {
+    display: flex;
+    flex-wrap: nowrap; 
+    gap: 10px;
+    justify-content: center;
+}
+
+.status-badge {
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    text-transform: capitalize;
+}
+/* Base Square Button Styling */
+.square-btn {
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    border: 1px solid #eee;
+    background: white;
+}
+
+.active-btn { background: #e6fffa; color: #234e52; }
+.blocked-btn { background: #fff5f5; color: #c53030; }
+
+/* Edit/Pencil Button Styling */
+.edit-btn {
+    border: 1px solid #ddd;
+    color: #666;
+    background: transparent;
+}
+
+.edit-btn:hover {
+    border-color: #666;
+    background-color: #f9f9f9;
+}
+
+/* Delete Button Styling (The Red Outlined Box) */
+.delete-btn {
+    border: 1px solid #ffdada; /* Light red border */
+    color: #e31e24; /* Brand red icon color */
+    background: transparent;
+}
+
+.delete-btn:hover {
+    background-color: #fff5f5;
+    border-color: #e31e24;
+}
+
+/* Prevent buttons from dropping to the next line */

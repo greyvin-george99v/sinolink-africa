@@ -17,13 +17,12 @@
     </a>
         </div>
         <div class="nav-links">
-    {{-- SHARED LINK --}}
     <a href="{{ url('/') }}" class="nav-item">
         <i class="fa-solid fa-globe"></i> Visit Website
     </a>
 
-    @if(Auth::user()->is_admin) {{-- Assuming you have an is_admin column --}}
-        {{-- ADMIN ONLY LINKS --}}
+    {{-- Change 'is_admin' to 'role === admin' --}}
+    @if(Auth::user()->role === 'admin') 
         <a href="{{ route('admin.dashboard') }}" class="nav-item {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
             <i class="fa-solid fa-gauge"></i> Overview
         </a>
@@ -34,16 +33,11 @@
             <i class="fa-solid fa-envelope-open-text"></i> Inquiries
         </a>
     @else
-        {{-- AFFILIATE ONLY LINKS --}}
         <a href="{{ route('dashboard') }}" class="nav-item {{ request()->routeIs('dashboard') ? 'active' : '' }}">
             <i class="fa-solid fa-house"></i> My Dashboard
         </a>
-        <a href="#" class="nav-item">
-            <i class="fa-solid fa-award"></i> Rewards
-        </a>
     @endif
 
-    {{-- SHARED ACCOUNT LINK --}}
     <a href="{{ route('profile.edit') }}" class="nav-item {{ request()->routeIs('profile.edit') ? 'active' : '' }}">
         <i class="fa-solid fa-user-gear"></i> Account Settings
     </a>
@@ -51,20 +45,11 @@
         
         <form method="POST" action="{{ route('logout') }}" style="display: contents;">
             @csrf
-            <button type="submit" class="logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</button>
+            <button type="submit" class="logout-btn"><i class="fa-solid text-black fa-right-from-bracket"></i> Sign Out</button>
         </form>
     </div>
 
-    <div class="main-content">
-        <div class="top-bar">
-            <div>
-                <h2 style="margin: 0;">@yield('header_title')</h2>
-            </div>
-            <a href="{{ route('profile.edit') }}" class="user-profile">
-                <span>Profile Settings</span>
-                <i class="fa-solid fa-circle-user"></i>
-            </a>
-        </div>
+    
 
         @yield('content')
     </div>

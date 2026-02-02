@@ -21,6 +21,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        
+        if (request()->has('ref')) {
+        // Queue a cookie named 'sino_ref' for 30 days
+        cookie()->queue('sino_ref', request()->query('ref'), 43200); 
+    }
     }
 }

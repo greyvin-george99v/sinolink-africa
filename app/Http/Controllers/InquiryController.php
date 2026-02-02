@@ -12,25 +12,28 @@ class InquiryController extends Controller {
 
     /**
      * Display the list of inquiries for the Admin.
-     * Fixes: Call to undefined method index()
+     * UPDATED: Added filtering by affiliate_id for the "View Leads" eye icon.
      */
-    public function index() {
-        // Fetch inquiries and join with users to see who referred them
-        $inquiries = DB::table('inquiries')
+    public function index(Request $request) {
+        $query = DB::table('inquiries')
             ->leftJoin('users', 'inquiries.affiliate_id', '=', 'users.id')
-            ->select('inquiries.*', 'users.name as affiliate_name')
-            ->orderBy('inquiries.created_at', 'desc')
-            ->get();
+            ->select('inquiries.*', 'users.name as affiliate_name');
 
-        // Point to the view at resources/views/admin/inquiries.blade.php
+        // If filtering by a specific affiliate from the Management page
+        if ($request->has('affiliate_id')) {
+            $query->where('inquiries.affiliate_id', $request->affiliate_id);
+        }
+
+        $inquiries = $query->orderBy('inquiries.created_at', 'desc')->get();
+
         return view('admin.inquiries.inquiries', compact('inquiries'));
     }
 
     /**
      * Store a new inquiry and award points to affiliates.
+     * FIX: Check for 'active' status before awarding points.
      */
     public function store(Request $request) {
-        // 1. Precise Validation
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'phone' => 'required|string|max:20',
@@ -40,26 +43,33 @@ class InquiryController extends Controller {
             'message' => 'nullable|string',
         ]);
 
-        // --- START AFFILIATE LOGIC ---
         $affiliateId = null;
 
-        // Check if the visitor has a referral cookie set from the landing page
-        if (Cookie::has('affiliate_ref')) {
-            $refCode = Cookie::get('affiliate_ref');
-            
-            // Find the affiliate with this unique code
+        if (Cookie::has('sino_ref')) {
+            $refCode = Cookie::get('sino_ref');
+            // Check if affiliate exists AND is active
             $affiliate = DB::table('users')->where('referral_code', $refCode)->first();
 
-            if ($affiliate) {
+            if ($affiliate && $affiliate->status === 'active') {
                 $affiliateId = $affiliate->id;
 
-                // Award 10 points to the affiliate for the successful lead
-                DB::table('users')->where('id', $affiliateId)->increment('points', 10);
+                DB::transaction(function () use ($affiliateId, $request) {
+                    // Award 10 points for the initial lead
+                    DB::table('users')->where('id', $affiliateId)->increment('points', 10);
+
+                    // Audit Trail: Log the lead points
+                    DB::table('points_logs')->insert([
+                        'user_id' => $affiliateId,
+                        'points_earned' => 10,
+                        'description' => "Referral lead: {$request->name}",
+                        'created_at' => now(),
+                        'updated_at' => now(),
+                    ]);
+                });
             }
         }
-        // --- END AFFILIATE LOGIC ---
 
-        // 2. Save into the "inquiries" table
+        // Save inquiry even if affiliate is blocked (we keep the lead, just no points)
         DB::table('inquiries')->insert([
             'name' => $request->name,
             'phone' => $request->phone,
@@ -67,17 +77,66 @@ class InquiryController extends Controller {
             'country' => $request->country,
             'vehicle_type' => $request->vehicle_type,
             'message' => $request->message,
-            'affiliate_id' => $affiliateId, // Link the inquiry to the affiliate
+            'affiliate_id' => $affiliateId,
+            'status' => 'pending', 
             'created_at' => now(),
             'updated_at' => now(),
         ]);
 
-        // 3. Send Email Notification
-        // We manually add the affiliate_id to the object so the email knows who sent it
-        $emailData = (object) array_merge($validated, ['affiliate_id' => $affiliateId]);
+        $emailData = (object) [
+            'name'         => $request->name,
+            'phone'        => $request->phone,
+            'email'        => $request->email,
+            'country'      => $request->country,
+            'vehicle_type' => $vehicle_type,
+            'user_message' => $request->message,
+            'affiliate_id' => $affiliateId,
+        ];
+
         Mail::to('info@sinolink.africa')->send(new InquiryReceived($emailData));
 
-        // 4. Success Response
         return back()->with('success', 'Thank you! Your inquiry has been sent.');
+    }
+
+    /**
+     * NEW: Convert an inquiry to a sale and award high-value points.
+     * FIX: Only award 500 points if the affiliate is currently 'active'.
+     */
+    public function convertToSale($id) {
+        $inquiry = DB::table('inquiries')->where('id', $id)->first();
+
+        if ($inquiry && $inquiry->affiliate_id && $inquiry->status !== 'sold') {
+            
+            // Fetch affiliate to check status
+            $affiliate = DB::table('users')->where('id', $inquiry->affiliate_id)->first();
+
+            if ($affiliate && $affiliate->status === 'active') {
+                DB::transaction(function () use ($inquiry) {
+                    // 1. Mark as sold
+                    DB::table('inquiries')->where('id', $inquiry->id)->update([
+                        'status' => 'sold',
+                        'updated_at' => now()
+                    ]);
+
+                    // 2. Award 500 Bonus Points for the sale
+                    DB::table('users')->where('id', $inquiry->affiliate_id)->increment('points', 500);
+
+                    // 3. Log the big commission in the Audit Trail
+                    DB::table('points_logs')->insert([
+                        'user_id' => $inquiry->affiliate_id,
+                        'points_earned' => 500,
+                        'description' => "Sale Commission: Inquiry #{$inquiry->id} ({$inquiry->name})",
+                        'created_at' => now(),
+                        'updated_at' => now(),
+                    ]);
+                });
+
+                return back()->with('success', 'Inquiry marked as SOLD. 500 points awarded!');
+            } else {
+                return back()->with('error', 'Affiliate is currently blocked. No points awarded.');
+            }
+        }
+
+        return back()->with('error', 'Unable to process conversion.');
     }
 }
