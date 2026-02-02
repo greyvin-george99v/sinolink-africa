@@ -1,29 +1,40 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot>
+@extends('layouts.admin')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-profile-information-form')
-                </div>
+@section('title', 'Account Settings')
+@section('header_title', 'Update Profile')
+
+@section('content')
+<div class="profile-container">
+    <div class="profile-grid">
+        <div class="table-container profile-card">
+            <div class="card-header">
+                <i class="fa-solid fa-id-card"></i>
+                <h3>Profile Information</h3>
             </div>
-
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-password-form')
-                </div>
+            <div class="form-wrapper">
+                @include('profile.partials.update-profile-information-form')
             </div>
+        </div>
 
-            <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.delete-user-form')
-                </div>
+        <div class="table-container profile-card">
+            <div class="card-header">
+                <i class="fa-solid fa-shield-halved"></i>
+                <h3>Security Settings</h3>
+            </div>
+            <div class="form-wrapper">
+                @include('profile.partials.update-password-form')
             </div>
         </div>
     </div>
-</x-app-layout>
+
+    <div class="table-container profile-card danger-zone">
+        <div class="card-header">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <h3>Danger Zone</h3>
+        </div>
+        <div class="form-wrapper">
+            @include('profile.partials.delete-user-form')
+        </div>
+    </div>
+</div>
+@endsection

@@ -1,0 +1,201 @@
+:root {
+    --brand-red: #E1061B;
+    --brand-dark: #1a1a1a;
+    --sideview-width: 260px;
+    --bg-light: #f4f7f6;
+    --brand-yellow: #ffc107;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+body { 
+    background-color: var(--bg-light); 
+    display: flex; 
+    min-height: 100vh;
+}
+
+/* SIDEVIEW */
+.sideview {
+    width: var(--sideview-width);
+    background: var(--brand-dark);
+    color: white;
+    position: fixed;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.sideview-header {
+    padding: 20px 10px;
+    border-bottom: 1px solid rgba(255, 193, 7, 0.2); /* 20% opacity Golden Yellow */
+    margin-bottom: 15px;
+}
+
+.nav-links { padding: 20px 0; flex-grow: 1; }
+.nav-item {
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    color: #b3b3b3;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.nav-item i { margin-right: 15px; width: 20px; }
+.nav-item:hover, .nav-item.active {
+    background: rgba(225, 6, 27, 0.1);
+    color: white;
+    border-left: 4px solid var(--brand-red);
+}
+
+.logout-btn {
+    margin: 20px;
+    padding: 12px;
+    background: var(--brand-yellow);
+    color: white;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.btn-yellow, .copy-link-btn, .save-changes-btn {
+    background-color: var(--brand-yellow) !important;
+    color: var(--brand-dark) !important;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+/* MAIN CONTENT */
+.main-content {
+    margin-left: var(--sideview-width);
+    flex-grow: 1;
+    padding: 40px;
+    width: calc(100% - var(--sideview-width));
+}
+
+/* TOP BAR - FIXED WHITE BOX */
+.top-bar {
+    background: white;
+    padding: 20px 30px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* STATS CARDS - VISIBLE BOXES */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.stat-card {
+    background: white; /* This makes it look like a dashboard card */
+    padding: 25px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(225, 6, 27, 0.1);
+    color: var(--brand-red);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    margin-right: 20px;
+}
+
+.stat-info h3 { font-size: 0.9em; color: #888; font-weight: 400; }
+.stat-info p { font-size: 1.8em; font-weight: 700; color: var(--brand-dark); }
+
+/* TABLE CONTAINER - VISIBLE WHITE BOX */
+.table-container {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+table { width: 100%; border-collapse: collapse; }
+th { text-align: left; padding: 15px; color: #888; border-bottom: 2px solid #f4f4f4; }
+td { padding: 18px 15px; border-bottom: 1px solid #f9f9f9; }
+
+.code-badge {
+    background: #fff5f5;
+    color: var(--brand-red);
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-family: monospace;
+    font-weight: 600;
+}
+
+/* Profile Layout Grid */
+.profile-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+.profile-card {
+    margin: 0 !important; /* Overriding default margins */
+    display: flex;
+    flex-direction: column;
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.card-header i {
+    color: var(--brand-red);
+    font-size: 1.2em;
+}
+
+/* Style the Breeze Form Inputs to match your UI */
+.form-wrapper input[type="text"],
+.form-wrapper input[type="email"],
+.form-wrapper input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    transition: border-color 0.3s;
+}
+
+.form-wrapper input:focus {
+    border-color: var(--brand-yellow);
+    outline: none;
+}
+
+/* Match Breeze buttons to Sino Link Red */
+.form-wrapper button, 
+.form-wrapper .inline-flex.items-center.px-4 {
+    background-color: var(--brand-yellow) !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 10px 20px !important;
+}
+
+.danger-zone {
+    border-top: 3px solid #ff4d4d;
+}

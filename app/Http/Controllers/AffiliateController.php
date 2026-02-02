@@ -15,6 +15,6 @@ class AffiliateController extends Controller
         // Count how many inquiries have this user's ID linked to them
         $totalLeads = Inquiry::where('affiliate_id', $user->id)->count();
 
-        return view('affiliate.dashboard', compact('user', 'totalLeads'));
+        return view('affiliates.dashboard', compact('user', 'totalLeads'));
     }
 }
