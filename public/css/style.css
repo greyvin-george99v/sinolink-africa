@@ -2893,19 +2893,20 @@ html, body {
 .form-group input, 
 .form-group select, 
 .form-group textarea {
-    padding: 12px;
+    padding: 12px 25px !important; 
     border-radius: 10px;
     border: 1px solid #464646;
     font-family: 'Poppins', sans-serif;
     font-size: 15px;
     outline: none;
     transition: border 0.3s;
+    box-sizing: border-box; 
+    width: 100%;
 }
 
-.form-group input:focus, 
-.form-group select:focus, 
-.form-group textarea:focus {
-    border: 1px solid #E1061B; 
+.form-group select {
+    padding-left: 25px !important;
+    cursor: pointer;
 }
 
 .btn-send-inquiry {

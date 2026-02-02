@@ -6,54 +6,14 @@ use App\Mail\InquiryReceived;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Cookie; // Add this
 
 class InquiryController extends Controller {
 
-    public function index() {
-    // This fetches all data from the inquiries table, newest first
-    $inquiries = DB::table('inquiries')->orderBy('created_at', 'desc')->get();
-    
-    // This looks for the file we just made in resources/views/admin/
-    return view('admin.inquiries', compact('inquiries'));
-    }
-
-public function exportCsv() {
-    $fileName = 'sinolink_inquiries_' . date('Y-m-d') . '.csv';
-    $inquiries = DB::table('inquiries')->get();
-
-    $headers = array(
-        "Content-type"        => "text/csv",
-        "Content-Disposition" => "attachment; filename=$fileName",
-        "Pragma"              => "no-cache",
-        "Cache-Control"       => "must-revalidate, post-check=0, pre-check=0",
-        "Expires"             => "0"
-    );
-
-    $columns = array('Date', 'Name', 'Email', 'Phone', 'Country', 'Vehicle Type', 'Message');
-
-    $callback = function() use($inquiries, $columns) {
-        $file = fopen('php://output', 'w');
-        fputcsv($file, $columns);
-
-        foreach ($inquiries as $inquiry) {
-            fputcsv($file, array(
-                $inquiry->created_at,
-                $inquiry->name,
-                $inquiry->email,
-                $inquiry->phone,
-                $inquiry->country,
-                $inquiry->vehicle_type,
-                $inquiry->message
-            ));
-        }
-        fclose($file);
-    };
-
-    return response()->stream($callback, 200, $headers);
-    }
+    // ... (index and exportCsv stay the same)
 
     public function store(Request $request) {
-        // 1. Precise Validation for your fields
+        // 1. Precise Validation
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'phone' => 'required|string|max:20',
@@ -63,7 +23,26 @@ public function exportCsv() {
             'message' => 'nullable|string',
         ]);
 
-        // 2. Save into the "inquiries" table
+        // --- START NEW AFFILIATE LOGIC ---
+        $affiliateId = null;
+
+        // Check if the visitor has a referral cookie
+        if (Cookie::has('affiliate_ref')) {
+            $refCode = Cookie::get('affiliate_ref');
+            
+            // Find the affiliate with this unique code
+            $affiliate = DB::table('users')->where('referral_code', $refCode)->first();
+
+            if ($affiliate) {
+                $affiliateId = $affiliate->id;
+
+                // Award 10 points to the affiliate
+                DB::table('users')->where('id', $affiliateId)->increment('points', 10);
+            }
+        }
+        // --- END NEW AFFILIATE LOGIC ---
+
+        // 2. Save into the "inquiries" table (including the affiliate_id)
         DB::table('inquiries')->insert([
             'name' => $request->name,
             'phone' => $request->phone,
@@ -71,11 +50,13 @@ public function exportCsv() {
             'country' => $request->country,
             'vehicle_type' => $request->vehicle_type,
             'message' => $request->message,
+            'affiliate_id' => $affiliateId, // Link the inquiry to the affiliate
             'created_at' => now(),
         ]);
 
         $inquiry = (object) $validated; 
         Mail::to('info@sinolink.africa')->send(new InquiryReceived($inquiry));
+
         // 3. Send back to the form with success
         return back()->with('success', 'Thank you! Your inquiry has been sent.');
     }
