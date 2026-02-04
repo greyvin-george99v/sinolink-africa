@@ -257,7 +257,6 @@ td { padding: 18px 15px; border-bottom: 1px solid #f9f9f9; }
 }
 
 /* Prevent buttons from dropping to the next line */
-
 /* --- MOBILE & TABLET RESPONSIVENESS --- */
 @media (max-width: 992px) {
     body {

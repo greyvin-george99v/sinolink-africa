@@ -58,7 +58,7 @@
                 </tr>
                 @empty
                 <tr>
-                    <td colspan="6" style="text-align: center; padding: 40px; color: #999;">{{__(No referral leads found.)}}</td>
+                    <td colspan="6" style="text-align: center; padding: 40px; color: #999;">{{ __('No referral leads found.') }}</td>
                 </tr>
                 @endforelse
             </tbody>
