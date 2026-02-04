@@ -41,7 +41,7 @@
                     <th style="text-align: center;">{{ __('Points') }}</th>
                     <th style="text-align: center;">{{ __('Joined Date') }}</th>
                     <th style="text-align: center;">{{ __('Status') }}</th>
-                    <th style="text-align: center;">{{ __('Actions') }}</th> </tr>
+                    
             </thead>
             <tbody>
                 @foreach($affiliates as $affiliate)
@@ -59,18 +59,12 @@
                         <form action="{{ route('admin.affiliates.toggle', $affiliate->id) }}" method="POST">
                             @csrf
                             <button type="submit" class="status-badge {{ $affiliate->status === 'blocked' ? 'blocked-btn' : 'active-btn' }}">
-                                {{ ucfirst($affiliate->status ?? 'active') }}
+                                {{ __($affiliate->status ?? 'active') }}
                             </button>
                         </form>
                     </td>
 
-                    <td style="text-align: center;">
-                        <div class="action-flex-container">
-                            <a href="{{ route('admin.inquiries', ['affiliate_id' => $affiliate->id]) }}" class="view-lead-btn" title="View Leads">
-                                <i class="fa-solid fa-eye"></i>
-                            </a>
-                        </div>
-                    </td>
+                    
                 </tr>
                 @endforeach
             </tbody>

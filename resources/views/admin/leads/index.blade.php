@@ -37,10 +37,11 @@
                     
                     <td>
                         <span class="status-badge {{ $lead->status === 'sold' ? 'active' : '' }}" 
-                              style="background: {{ $lead->status === 'sold' ? '#d4edda' : '#fff3cd' }}; 
-                                     color: {{ $lead->status === 'sold' ? '#155724' : '#856404' }};">
-                            {{ ucfirst($lead->status) }}
-                        </span>
+                        style="background: {{ $lead->status === 'sold' ? '#d4edda' : '#fff3cd' }}; 
+                                color: {{ $lead->status === 'sold' ? '#155724' : '#856404' }}; 
+                                padding: 5px 10px; border-radius: 4px; font-weight: 600;">
+                        {{ __($lead->status) }}
+                    </span>
                     </td>
                     <td>
                         @if($lead->status === 'pending')

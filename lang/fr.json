@@ -363,6 +363,24 @@
     "Action": "Action",
     "Confirm Sale": "Confirmer la Vente",
     "Awarded": "Récompensé",
-    "No referral leads found.": "Aucun prospect de parrainage trouvé."
+    "No referral leads found.": "Aucun prospect de parrainage trouvé.",
+    "Update Password": "Mettre à jour le mot de passe",
+    "Current Password": "Mot de passe actuel",
+    "New Password": "Nouveau mot de passe",
+    "Pending": "En attente",
+    "Sold": "Vendu",
+    "Contact Info": "Coordonnées",
+    "Customer": "Client",
+    "My Submitted Referrals": "Mes parrainages soumis",
+    "Submit a Customer": "Soumettre un client",
+    "Customer Phone": "Téléphone du client",
+    "Country": "Pays",
+    "Customer Email": "Email du client",
+    "pending": "en attente",
+    "sold": "vendu",
+    "active": "actif",
+    "blocked": "bloqué",
+    "Submit Customer": "Soumettre un client"
+    
 
 }

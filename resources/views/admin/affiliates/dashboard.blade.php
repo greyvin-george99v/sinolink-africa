@@ -153,6 +153,10 @@
                 <input type="text" name="customer_phone" required placeholder="+254..." style="width:100%; padding:12px; border:1px solid #ddd; border-radius:8px;">
             </div>
             <div style="margin-bottom:15px;">
+                <label style="display: block; font-weight: 600; margin-bottom: 5px;">{{ __('Customer Email') }}</label>
+                <input type="email" name="customer_email" required placeholder="example@mail.com" style="width:100%; padding:12px; border:1px solid #ddd; border-radius:8px;">
+            </div>
+            <div style="margin-bottom:15px;">
                 <label style="display: block; font-weight: 600; margin-bottom: 5px;">{{ __('Country') }}</label>
                 <input type="text" name="country" placeholder="e.g. Kenya" style="width:100%; padding:12px; border:1px solid #ddd; border-radius:8px;">
             </div>
