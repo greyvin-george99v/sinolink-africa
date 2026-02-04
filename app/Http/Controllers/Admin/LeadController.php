@@ -42,9 +42,9 @@ class LeadController extends Controller
     public function markAsSold($id) {
         $lead = Lead::findOrFail($id);
         
-        if ($lead->status === 'en attente') {
+        if ($lead->status === 'pending') {
             DB::transaction(function () use ($lead) {
-                $lead->update(['status' => 'vendu']);
+                $lead->update(['status' => 'sold']);
                 $lead->user->increment('points', 10);
             });
             return back()->with('success', 'Sale confirmed! 10 points awarded.');
