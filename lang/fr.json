@@ -298,9 +298,38 @@
     "Send Inquiry": "Envoyer la demande",
     "Sinolink Logistics": "Logistique Sinolink",
     "NO 10 Maizhuan Road, Lishui Town": "NO 10 Maizhuan Road, Lishui Town",
-    "Nanhai District, Foshan China": "District de Nanhai, Foshan Chine"
-
-
+    "Nanhai District, Foshan China": "District de Nanhai, Foshan Chine",
+    "This is a secure area of the application. Please confirm your password before continuing.": "Il s'agit d'une zone sécurisée de l'application. Veuillez confirmer votre mot de passe avant de continuer.",
+    "Password": "Mot de passe",
+    "Confirm": "Confirmer",
+    "Name": "Nom",
+    "Email": "Email",
+    "Confirm Password": "Confirmez le mot de passe",
+    "Already registered?": "Déjà inscrit ?",
+    "Register": "S'inscrire",
+    "Login": "Connexion",
+    "Forgot your password?": "Mot de passe oublié ?",
+    "Remember me": "Se souvenir de moi",
+    "Update Profile": "Mettre à jour le profil",
+    "Profile Information": "Informations sur le profil",
+    "Save": "Enregistrer",
+    "Log Out": "Déconnexion",
+    "Affiliate Management": "Gestion des Affiliés",
+    "Admin Panel": "Panneau d'Administration",
+    "Total Affiliates": "Total des Affiliés",
+    "Active Points": "Points Actifs",
+    "Registered Partners": "Partenaires Inscrits",
+    "Affiliate Name": "Nom de l'Affilié",
+    "Referral Code": "Code de Parrainage",
+    "Email Address": "Adresse Email",
+    "Points": "Points",
+    "Joined Date": "Date d'Inscription",
+    "Status": "Statut",
+    "Actions": "Actions",
+    "Active": "Actif",
+    "Blocked": "Bloqué",
+    "No affiliates found.": "Aucun affilié trouvé.",
+    "View Leads": "Voir les Prospects"
 
 
 }

@@ -7,19 +7,19 @@
     {{-- We removed sideview and main-content because the Layout file already has them --}}
     <div class="main-content">
         <div class="top-bar">
-            <h2>Inquiries Management</h2>
+            <h2>{{ __('Inquiries Management') }}</h2>
             <div class="user-profile">
-                Admin Panel <i class="fa-solid fa-circle-user"></i>
+                {{ __('Admin Panel') }} <i class="fa-solid fa-circle-user"></i>
             </div>
         </div>
     <div class="table-container">
         <table>
             <thead>
                 <tr>
-                    <th>Date</th>
-                    <th>Customer Name</th>
-                    <th>Email</th>
-                    <th>Interested In</th>
+                    <th>{{ __('Date') }}</th>
+                    <th>{{ __('Customer Name') }}</th>
+                    <th>{{ __('Email') }}</th>
+                    <th>{{ __('Interested In') }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -35,7 +35,7 @@
                 @if($inquiries->isEmpty())
                 <tr>
                     <td colspan="4" style="text-align: center; padding: 40px; color: #888;">
-                        No inquiries found yet.
+                        {{ __('No inquiries found yet.') }}
                     </td>
                 </tr>
                 @endif

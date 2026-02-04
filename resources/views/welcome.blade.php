@@ -110,7 +110,7 @@
         </p>
   
         <a href="{{ url('/about') }}" class="about-btn">{{ __('Read More') }}</a>
-  
+        
       </div>
   
       <!-- Image -->

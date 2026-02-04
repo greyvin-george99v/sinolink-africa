@@ -257,3 +257,89 @@ td { padding: 18px 15px; border-bottom: 1px solid #f9f9f9; }
 }
 
 /* Prevent buttons from dropping to the next line */
+
+/* --- MOBILE & TABLET RESPONSIVENESS --- */
+@media (max-width: 992px) {
+    body {
+        flex-direction: column; /* Stack sidebar on top of content */
+    }
+
+    /* 1. Sidebar transformation */
+    .sideview {
+        width: 100%;
+        height: auto;
+        position: relative; /* Stop floating on top of content */
+        border-bottom: 2px solid var(--brand-yellow);
+    }
+
+    .nav-links {
+        display: flex;
+        overflow-x: auto; /* Allow horizontal scroll for menu items on mobile */
+        padding: 10px;
+    }
+
+    .nav-item {
+        padding: 10px 15px;
+        white-space: nowrap;
+        border-left: none !important;
+        border-bottom: 3px solid transparent;
+    }
+
+    .nav-item:hover, .nav-item.active {
+        border-bottom: 3px solid var(--brand-red);
+    }
+
+    .logout-btn { margin: 10px; }
+
+    /* 2. Main Content adjustment */
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 20px; /* Reduce padding for smaller screens */
+    }
+
+    /* 3. Stats Grid: 1 column on mobile, 2 on tablet */
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* 4. Top Bar: Stack items */
+    .top-bar {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    /* 5. Profile Grid adjustment */
+    .profile-grid {
+        grid-template-columns: 1fr; /* Force vertical stacking */
+        min-width: unset;
+    }
+
+    /* 6. Responsive Tables */
+    .table-container {
+        overflow-x: auto; /* Enable horizontal swiping for the table */
+        padding: 15px;
+    }
+
+    table {
+        min-width: 600px; /* Ensures table doesn't squish too much */
+    }
+
+    /* 7. Action Buttons */
+    .action-container {
+        flex-wrap: wrap; /* Allow buttons to wrap if they don't fit */
+    }
+}
+
+@media (max-width: 480px) {
+    .stat-card {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .stat-icon {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+}

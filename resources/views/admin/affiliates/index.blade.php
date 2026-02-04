@@ -1,12 +1,13 @@
 @extends('layouts.admin')
 
+
 @section('content')
 
     <div class="main-content">
         <div class="top-bar">
-            <h2>Affiliate Management</h2>
+            <h2>{{ __('Affiliate Management') }}</h2>
             <div class="user-profile">
-                Admin Panel <i class="fa-solid fa-circle-user"></i>
+                {{ __('Admin Panel') }} <i class="fa-solid fa-circle-user"></i>
             </div>
         </div>
 
@@ -14,14 +15,14 @@
             <div class="stat-card">
                 <div class="stat-icon"><i class="fa-solid fa-users"></i></div>
                 <div class="stat-info">
-                    <h3>Total Affiliates</h3>
+                    <h3>{{ __('Total Affiliates') }}</h3>
                     <p>{{ $affiliates->count() }}</p>
                 </div>
             </div>
             <div class="stat-card">
                 <div class="stat-icon"><i class="fa-solid fa-star"></i></div>
                 <div class="stat-info">
-                    <h3>Active Points</h3>
+                    <h3>{{ __('Active Points') }}</h3>
                     <p>{{ $affiliates->sum('points') }}</p>
                 </div>
             </div>
@@ -29,18 +30,18 @@
 
         <div class="table-container">
             <div class="table-header">
-                <h2>Registered Partners</h2>
+                <h2>{{ __('Registered Partners') }}</h2>
             </div>
             <table>
                 <thead>
                 <tr>
-                    <th>Affiliate Name</th>
-                    <th>Referral Code</th>
-                    <th>Email Address</th>
-                    <th style="text-align: center;">Points</th>
-                    <th style="text-align: center;">Joined Date</th>
-                    <th style="text-align: center;">Status</th>
-                    <th style="text-align: center;">Actions</th> </tr>
+                    <th>{{ __('Affiliate Name') }}</th>
+                    <th>{{ __('Referral Code') }}</th>
+                    <th>{{ __('Email Address') }}</th>
+                    <th style="text-align: center;">{{ __('Points') }}</th>
+                    <th style="text-align: center;">{{ __('Joined Date') }}</th>
+                    <th style="text-align: center;">{{ __('Status') }}</th>
+                    <th style="text-align: center;">{{ __('Actions') }}</th> </tr>
             </thead>
             <tbody>
                 @foreach($affiliates as $affiliate)
@@ -78,7 +79,7 @@
             @if($affiliates->isEmpty())
                 <div style="text-align: center; padding: 50px; color: #bbb;">
                     <i class="fa-solid fa-folder-open" style="font-size: 3em; display: block; margin-bottom: 10px;"></i>
-                    No affiliates found.
+                    {{ __('No affiliates found.') }}
                 </div>
             @endif
         </div>

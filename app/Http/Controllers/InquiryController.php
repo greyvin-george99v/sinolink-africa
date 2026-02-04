@@ -88,7 +88,7 @@ class InquiryController extends Controller {
             'phone'        => $request->phone,
             'email'        => $request->email,
             'country'      => $request->country,
-            'vehicle_type' => $vehicle_type,
+            'vehicle_type' => $request->vehicle_type,
             'user_message' => $request->message,
             'affiliate_id' => $affiliateId,
         ];

@@ -12,7 +12,44 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <style>
+    /* MOBILE VIEW FIX FOR AFFILIATE BUTTON */
+    @media (max-width: 991px) {
+        /* Ensure the list item is visible and spaced */
+        .mobile-affiliate-item {
+            display: block !important; 
+            padding: 10px 20px;
+            border-top: 1px solid #eee;
+            margin: 10px 0;
+        }
+
+        /* High-contrast styling for the button */
+        .btn-affiliate-mobile {
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            background-color: #222 !important; /* Dark background to stand out */
+            color: #ffffff !important; 
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            border: none;
+            width: 100%;
+        }
+
+        .btn-affiliate-mobile i {
+            margin-right: 10px;
+            color: #ffc107; /* Red icon for brand consistency */
+        }
+    }
     
+    @media (min-width: 992px) {
+        .mobile-affiliate-item {
+            display: none !important; 
+        }
+    }
+</style>
     @stack('styles')
 </head>
 <body>
@@ -73,22 +110,27 @@
         </div>
 
         <ul class="nav-links" id="nav-list">
-            <li><a href="{{ url('/') }}">{{ __('HOME') }}</a></li>
-            <li><a href="{{ url('/about') }}" class="{{ Request::is('about') ? 'active' : '' }}">{{ __('ABOUT US') }}</a></li>
-            <li><a href="{{ url('/catalogue') }}" class="{{ Request::is('catalogue') ? 'active' : '' }}">{{ __('CATALOGUE') }}</a></li>
-            <li><a href="{{ url('/services') }}" class="{{ Request::is('services') ? 'active' : '' }}">{{ __('SERVICES') }}</a></li>
-            <li><a href="{{ url('/media') }}" class="{{ Request::is('media') ? 'active' : '' }}">{{ __('MEDIA') }}</a></li>
-            <li><a href="{{ url('/coverage') }}" class="{{ Request::is('coverage') ? 'active' : '' }}">{{ __('COVERAGE') }}</a></li>
-            <li><a href="{{ url('/contact') }}" class="{{ Request::is('contact') ? 'active' : '' }}">{{ __('CONTACTS') }}</a></li>
-            
-            
-            
-            
-            <li class="mobile-quote-container">
-                
-                <a href="{{ url('/contact') }}" class="btn-quote-mobile">{{ __('REQUEST A QUOTE') }}</a>
-            </li>
-        </ul>
+    <li><a href="{{ url('/') }}">{{ __('HOME') }}</a></li>
+    <li><a href="{{ url('/about') }}" class="{{ Request::is('about') ? 'active' : '' }}">{{ __('ABOUT US') }}</a></li>
+    <li><a href="{{ url('/catalogue') }}" class="{{ Request::is('catalogue') ? 'active' : '' }}">{{ __('CATALOGUE') }}</a></li>
+    <li><a href="{{ url('/services') }}" class="{{ Request::is('services') ? 'active' : '' }}">{{ __('SERVICES') }}</a></li>
+    <li><a href="{{ url('/media') }}" class="{{ Request::is('media') ? 'active' : '' }}">{{ __('MEDIA') }}</a></li>
+    <li><a href="{{ url('/coverage') }}" class="{{ Request::is('coverage') ? 'active' : '' }}">{{ __('COVERAGE') }}</a></li>
+    <li><a href="{{ url('/contact') }}" class="{{ Request::is('contact') ? 'active' : '' }}">{{ __('CONTACTS') }}</a></li>
+
+    <li class="mobile-affiliate-item">
+        <a href="{{ url('/register') }}?type=affiliate" class="btn-affiliate-mobile">
+            <i class="fa-solid fa-handshake"></i> {{ __('BECOME AN AFFILIATE') }}
+        </a>
+    </li>
+
+    <li class="mobile-quote-container">
+        <a href="{{ url('/contact') }}" class="btn-quote-mobile">
+            {{ __('REQUEST A QUOTE') }}
+        </a>
+    </li>
+</ul>
+        
 
         <a href="{{ url('/contact') }}" class="btn-quote">{{ __('REQUEST A QUOTE') }}</a>
         <div class="menu-toggle" id="mobile-menu">

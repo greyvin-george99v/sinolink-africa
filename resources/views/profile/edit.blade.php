@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
-@section('title', 'Account Settings')
-@section('header_title', 'Update Profile')
+@section('title', __('Account Settings'))
+@section('header_title', __('Update Profile'))
 
 @section('content')
 
@@ -20,7 +20,7 @@
         <div class="table-container profile-card">
             <div class="card-header">
                 <i class="fa-solid fa-id-card"></i>
-                <h3>Profile Information</h3>
+                <h3>{{ __('Profile Information') }}</h3>
             </div>
             <div class="form-wrapper">
                 @include('profile.partials.update-profile-information-form')
@@ -30,7 +30,7 @@
         <div class="table-container profile-card">
             <div class="card-header">
                 <i class="fa-solid fa-shield-halved"></i>
-                <h3>Security Settings</h3>
+                <h3>{{ __('Security Settings') }}</h3>
             </div>
             <div class="form-wrapper">
                 @include('profile.partials.update-password-form')
@@ -41,7 +41,7 @@
     <div class="table-container profile-card danger-zone">
         <div class="card-header">
             <i class="fa-solid fa-triangle-exclamation"></i>
-            <h3>Danger Zone</h3>
+            <h3>{{ __('Danger Zone') }}</h3>
         </div>
         <div class="form-wrapper">
             @include('profile.partials.delete-user-form')

@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\InquiryController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin\LeadController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -58,6 +59,11 @@ Route::get('/clear-site', function() {
     return "Cache is cleared! Delete this route now.";
 });
 
+Route::middleware(['auth'])->group(function () {
+    // We name it 'leads.store' so it doesn't conflict with 'admin.' prefix
+    Route::post('/leads/submit', [LeadController::class, 'store'])->name('leads.store');
+});
+
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
     // This defines the missing route
     Route::get('/dashboard', [AffiliateManagementController::class, 'index'])->name('dashboard');
@@ -66,7 +72,11 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('/affiliates', [AffiliateManagementController::class, 'index'])->name('affiliates');
     Route::get('/inquiries', [InquiryController::class, 'index'])->name('inquiries');
     Route::get('/inquiries/export', [InquiryController::class, 'exportCsv'])->name('inquiries.export');
+    Route::get('/leads', [LeadController::class, 'index'])->name('leads');
+    Route::post('/leads/{id}/sold', [LeadController::class, 'markAsSold'])->name('leads.sold');
+    
 });
+
 Route::get('/dashboard', [AffiliateController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
