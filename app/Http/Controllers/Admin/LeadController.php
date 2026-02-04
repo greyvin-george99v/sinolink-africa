@@ -33,7 +33,7 @@ class LeadController extends Controller
             'customer_email' => $request->customer_email,
             'vehicle_interest' => $request->vehicle_interest,
             'country' => $request->country,
-            'status' => 'en attente',
+            'status' => 'pending',
         ]);
 
         return redirect('/dashboard')->with('success', 'Customer lead submitted successfully!');
