@@ -124,11 +124,7 @@
         </a>
     </li>
 
-    <li class="mobile-quote-container">
-        <a href="{{ url('/contact') }}" class="btn-quote-mobile">
-            {{ __('REQUEST A QUOTE') }}
-        </a>
-    </li>
+    
 </ul>
         
 
