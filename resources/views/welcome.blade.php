@@ -24,15 +24,16 @@
             </div>
 
              <div class="hero-actions">
-                <a href="{{ url('/contact') }}" class="hero-btn-red">{{ __('Learn More') }}</a>
-                <a href="https://www.youtube.com/embed/W7vL49sO68I?autoplay=1" class="watch-video" data-lity>
-                    <div class="play-btn-wrapper">
-                        <div class="play-circle"><i class="fa-solid fa-play"></i></div>
-                        <div class="ripple"></div><div class="ripple"></div><div class="ripple"></div>
-                    </div>
-                    <span> {{ __('Watch Video') }}</span>
-                </a>
-            </div>
+                    <a href="{{ url('/contact') }}" class="hero-btn-red">{{ __('Learn More') }}</a>
+                    
+                    <a href="https://www.youtube.com/embed/o5SHUiTM6q0?autoplay=1" class="watch-video" data-lity>
+                        <div class="play-btn-wrapper">
+                            <div class="play-circle"><i class="fa-solid fa-play"></i></div>
+                            <div class="ripple"></div><div class="ripple"></div><div class="ripple"></div>
+                        </div>
+                        <span> {{ __('Watch Video') }}</span>
+                    </a>
+                </div>
         </div>
     </div>
 
@@ -49,13 +50,7 @@
             </div>
           <div class="hero-actions">
                 <a href="{{ url('/services') }}" class="hero-btn-red">{{ __('OUR SERVICES') }}</a>
-                <a href="https://www.youtube.com/embed/9X5eL_pW8lA?autoplay=1" class="watch-video" data-lity>
-                    <div class="play-btn-wrapper">
-                        <div class="play-circle"><i class="fa-solid fa-play"></i></div>
-                        <div class="ripple"></div><div class="ripple"></div><div class="ripple"></div>
-                    </div>
-                    <span>{{ __('Watch Video') }}</span>
-                </a>
+                
             </div>
         </div>
     </div>
@@ -74,13 +69,7 @@
 
             <div class="hero-actions">
                 <a href="{{ url('/catalogue') }}" class="hero-btn-red">{{ __('View Catalogue') }}</a>
-                <a href="https://www.youtube.com/embed/r6p60mXqfEw?autoplay=1" class="watch-video" data-lity>
-                    <div class="play-btn-wrapper">
-                        <div class="play-circle"><i class="fa-solid fa-play"></i></div>
-                        <div class="ripple"></div><div class="ripple"></div><div class="ripple"></div>
-                    </div>
-                    <span>{{ __('Watch Video') }}</span>
-                </a>
+                
             </div>
         </div>
     </div>
