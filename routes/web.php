@@ -7,6 +7,7 @@ use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\InquiryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\LeadController;
+use App\Http\Controllers\Admin\AdminVehicleController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -65,17 +66,19 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
-    // This defines the missing route
     Route::get('/dashboard', [AffiliateManagementController::class, 'index'])->name('dashboard');
-    
-    // Existing routes moved into the group for consistency
     Route::get('/affiliates', [AffiliateManagementController::class, 'index'])->name('affiliates');
     Route::get('/inquiries', [InquiryController::class, 'index'])->name('inquiries');
     Route::get('/inquiries/export', [InquiryController::class, 'exportCsv'])->name('inquiries.export');
     Route::get('/leads', [LeadController::class, 'index'])->name('leads');
     Route::post('/leads/{id}/sold', [LeadController::class, 'markAsSold'])->name('leads.sold');
+    Route::resource('vehicles', AdminVehicleController::class);
+    Route::post('vehicles/{id}/mark-sold', [AdminVehicleController::class, 'markAsSold'])->name('vehicles.markSold');
     
 });
+
+// Public route for viewing a single vehicle
+Route::get('/catalogue/{slug}', [VehicleController::class, 'show'])->name('vehicles.show');
 
 Route::get('/dashboard', [AffiliateController::class, 'index'])
     ->middleware(['auth', 'verified'])
