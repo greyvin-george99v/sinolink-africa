@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sinolink - Vehicle ATV & Sourcing @yield('title')</title>
     
-    <!-- Fonts -->
-     <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/lity/2.4.1/lity.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -54,9 +53,7 @@
 </head>
 <body>
 
-   <!-- Top Bar -->
-  <!-- TOP HEADER -->
-  <header class="main-header">
+   <header class="main-header">
     <div class="header__inner">
         
         <div class="header__left">
@@ -238,7 +235,21 @@
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
-        @stack('scripts')
-    
-</body>
+    @stack('scripts')
+
+    <script>
+        document.addEventListener('wheel', function(e) {
+            if (e.ctrlKey) return; 
+            e.preventDefault();
+            const delta = e.deltaY;
+            const scrollStep = 220; 
+            window.scrollBy({
+                top: delta > 0 ? scrollStep : -scrollStep,
+                left: 0,
+                behavior: 'smooth'
+            });
+        }, { passive: false });
+    </script>
+
+    </body>
 </html>

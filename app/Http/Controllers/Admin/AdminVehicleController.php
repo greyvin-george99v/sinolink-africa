@@ -17,19 +17,23 @@ class AdminVehicleController extends Controller
         {
             $query = Vehicle::query();
 
-            // Only search the 'name' column since 'brand' does not exist in your database
-            if ($request->filled('search')) {
-                $searchTerm = $request->search;
-                $query->where('name', 'LIKE', '%' . $searchTerm . '%');
-            }
+    // Search Logic
+    if ($request->filled('search')) {
+        $searchTerm = $request->search;
+        $query->where('name', 'LIKE', '%' . $searchTerm . '%');
+    }
 
-            // Use withQueryString() so the search result stays visible if you click next page
-            $vehicles = $query->orderBy('id', 'asc')
-                            ->paginate(20)
-                            ->withQueryString();
+    $vehicles = $query->orderBy('id', 'asc')
+                      ->paginate(20)
+                      ->withQueryString();
 
-            return view('admin.vehicles.index', compact('vehicles'));
-        }
+    // If the request is AJAX or expects JSON, return the JSON response
+    if ($request->wantsJson() || $request->ajax()) {
+        return response()->json($vehicles);
+    }
+
+    return view('admin.vehicles.index', compact('vehicles'));
+}
 
     public function create()
     {

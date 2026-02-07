@@ -18,7 +18,12 @@ Route::get('/catalogue', [VehicleController::class, 'catalogue'])->name('catalog
 Route::get('/vehicles/{slug}', [VehicleController::class, 'show'])->name('vehicle.show');
 
 
+
 Route::get('/affiliate-program', [VehicleController::class, 'showGenerator'])->name('affiliate-program');
+
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
 
 Route::get('/services', function () {
     return view('services');

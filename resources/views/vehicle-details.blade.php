@@ -85,14 +85,14 @@
             <div class="contact-info">
                 <h3 class="card-title mt-4">{{ __('Quick Contact') }}</h3>
                 <div class="contact-row">
-                    <div class="icon-circle"><i class="fa-solid fa-phone"></i></div>
+                    <div class="icon-circle-extra"><i class="fa-solid fa-phone"></i></div>
                     <div class="text-group">
                         <p>(+254) 713 688 640</p>
                         <a href="mailto:info@sinolink.africa">info@sinolink.africa</a>
                     </div>
                 </div>
                 <div class="contact-row">
-                    <div class="icon-circle"><i class="fa-solid fa-clock"></i></div>
+                    <div class="icon-circle-extra"><i class="fa-solid fa-clock"></i></div>
                     <div class="text-group">
                         <p>{{ __('Mon - Fri: 8:00 to 17:00') }}</p>
                         <p>({{ __('Saturday & Sunday Closed') }})</p>

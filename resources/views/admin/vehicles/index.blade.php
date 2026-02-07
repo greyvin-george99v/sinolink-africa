@@ -44,7 +44,7 @@
             {{-- SEARCH FORM --}}
             <form action="{{ route('admin.vehicles.index') }}" method="GET" style="display: flex; gap: 10px;">
                     <input type="text" name="search" value="{{ request('search') }}" 
-                        placeholder="Search car name..." 
+                        placeholder="Search vehicle name..." 
                         style="padding: 10px; border: 1px solid #ddd; border-radius: 8px; width: 250px;">
                     
                     <button type="submit" style="background: #333; color: #fff; padding: 10px 20px; border-radius: 8px; border: none; cursor: pointer;">
@@ -96,7 +96,7 @@
                         
                         <td style="padding: 12px;">
                             <span style="background: #f8f9fa; padding: 4px 10px; border-radius: 4px; border: 1px solid #eee; font-size: 0.85rem;">
-                                {{ $vehicle->color ?? 'N/A' }}
+                                {{ __($vehicle->color ?? 'N/A') }}
                             </span>
                         </td>
                         
@@ -157,7 +157,10 @@
         <div class="admin-pagination-container">
             {{ $vehicles->links('pagination::bootstrap-4') }}
             <p class="pagination-info">
-                Showing {{ $vehicles->firstItem() ?? 0 }} to {{ $vehicles->lastItem() ?? 0 }} of {{ $vehicles->total() }} results
+                {{ __('Showing') }} {{ $vehicles->firstItem() ?? 0 }} 
+                {{ __('to') }} {{ $vehicles->lastItem() ?? 0 }} 
+                {{ __('of') }} {{ $vehicles->total() }} 
+                {{ __('results') }}
             </p>
         </div>
     </div>
